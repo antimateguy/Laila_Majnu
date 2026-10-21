@@ -1,0 +1,25 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Engine
+engine/build/
+/build/
+
+# Secrets: only .env.example files are committed
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
