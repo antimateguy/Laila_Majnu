@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/narrative.schema.json",
+  "title": "Narrative",
+  "description": "The LLM's structured output (prose only). Every number it cites must exist in the AbridgedPayload; the server fact-check gate enforces that and rejects milestone ids that were not sent. Source: docs/LLD.md, 'LLM output contract'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "language",
+    "film_title",
+    "tagline",
+    "acts",
+    "dynamics",
+    "milestone_notes",
+    "verdict",
+    "advice",
+    "flags"
+  ],
+  "properties": {
+    "language": {
+      "enum": [
+        "english",
+        "hinglish"
+      ]
+    },
+    "film_title": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "tagline": {
+      "type": "string",
+      "maxLength": 90
+    },
+    "acts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/act"
+      }
+    },
+    "dynamics": {
+      "$ref": "#/$defs/dynamics"
+    },
+    "milestone_notes": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/milestone_note"
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "maxLength": 140
+    },
+    "advice": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "flags": {
+      "$ref": "#/$defs/flags"
+    }
+  },
+  "$defs": {
+    "act": {
+      "title": "Act",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "act",
+        "title",
+        "text"
+      ],
+      "properties": {
+        "act": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 30
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 420
+        }
+      }
+    },
+    "dynamics": {
+      "title": "Dynamics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chaser",
+        "momentum",
+        "confidence"
+      ],
+      "properties": {
+        "chaser": {
+          "enum": [
+            "SELF",
+            "OTHER",
+            "BALANCED"
+          ]
+        },
+        "momentum": {
+          "enum": [
+            "RISING",
+            "STEADY",
+            "FADING"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "milestone_note": {
+      "title": "MilestoneNote",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "caption"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^m[1-8]$"
+        },
+        "caption": {
+          "type": "string",
+          "maxLength": 90
+        }
+      }
+    },
+    "flags": {
+      "title": "Flags",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_signal"
+      ],
+      "properties": {
+        "boundary_signal": {
+          "description": "True when the excerpts show the other person asking for space or to stop contact. Suppresses jokes and the share banner.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

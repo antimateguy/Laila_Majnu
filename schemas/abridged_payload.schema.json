@@ -1,0 +1,475 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/abridged_payload.schema.json",
+  "title": "AbridgedPayload",
+  "description": "The only chat-derived DTO sent for a narrative (client -> POST /v1/analyze). No names, no dates, no raw text: time is week offsets from the first message and every excerpt is masked on-device. Source: docs/LLD.md, 'AbridgedPayload v1'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "engine_version",
+    "metric_policy_version",
+    "request_id",
+    "role",
+    "platform",
+    "capabilities",
+    "span",
+    "language",
+    "metrics",
+    "milestones",
+    "excerpt_mode",
+    "est_tokens"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "engine_version": {
+      "$ref": "common.schema.json#/$defs/semver"
+    },
+    "metric_policy_version": {
+      "$ref": "common.schema.json#/$defs/policy_version"
+    },
+    "request_id": {
+      "$ref": "common.schema.json#/$defs/request_id"
+    },
+    "role": {
+      "$ref": "common.schema.json#/$defs/persona"
+    },
+    "platform": {
+      "$ref": "common.schema.json#/$defs/platform"
+    },
+    "capabilities": {
+      "$ref": "common.schema.json#/$defs/capabilities"
+    },
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weeks",
+        "sessions",
+        "messages",
+        "trailer_mode"
+      ],
+      "properties": {
+        "weeks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sessions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "messages": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200000
+        },
+        "trailer_mode": {
+          "description": "True when < 300 messages or < 14 days.",
+          "type": "boolean"
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hinglish_share"
+      ],
+      "properties": {
+        "hinglish_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        }
+      }
+    },
+    "metrics": {
+      "$ref": "#/$defs/metrics_block"
+    },
+    "milestones": {
+      "description": "Week must be within span.weeks (checked in API code; not expressible here).",
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/milestone"
+      }
+    },
+    "excerpt_mode": {
+      "enum": [
+        "masked",
+        "none"
+      ]
+    },
+    "est_tokens": {
+      "description": "Client over-estimate: ceil(ASCII bytes / 4) + non-ASCII codepoints + 2 x emoji. The server recounts exactly.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1300
+    }
+  },
+  "allOf": [
+    {
+      "description": "Trailer mode carries no milestones.",
+      "if": {
+        "properties": {
+          "span": {
+            "type": "object",
+            "properties": {
+              "trailer_mode": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "milestones": {
+            "type": "array",
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "description": "excerpt_mode none carries no excerpts.",
+      "if": {
+        "properties": {
+          "excerpt_mode": {
+            "const": "none"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "milestones": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "excerpts": {
+                  "type": "array",
+                  "maxItems": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "side_stats": {
+      "title": "SideStats",
+      "description": "One per participant, oriented SELF / OTHER.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "latency_p50_s",
+        "latency_p90_s",
+        "initiation_share",
+        "msg_share",
+        "char_share",
+        "double_text_rate",
+        "double_text_fast_share",
+        "double_text_slow_share",
+        "turn_toward_rate",
+        "followup_q_rate",
+        "dry_reply_rate",
+        "affection_rate",
+        "we_talk_rate",
+        "conflict_rate",
+        "night_share",
+        "ghost_events",
+        "ghosts_broken",
+        "pd_episodes_started"
+      ],
+      "properties": {
+        "latency_p50_s": {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        "latency_p90_s": {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        "initiation_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "msg_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "char_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "double_text_rate": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "double_text_fast_share": {
+          "description": "Share of SELF/OTHER double texts sent < 30 min after their own last message.",
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "double_text_slow_share": {
+          "description": "Share of double texts sent > 4 h after their own last message. Added by ADR-0002.",
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "turn_toward_rate": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "followup_q_rate": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "dry_reply_rate": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "affection_rate": {
+          "$ref": "common.schema.json#/$defs/per_hundred"
+        },
+        "we_talk_rate": {
+          "$ref": "common.schema.json#/$defs/per_hundred"
+        },
+        "conflict_rate": {
+          "$ref": "common.schema.json#/$defs/per_hundred"
+        },
+        "night_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "ghost_events": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "ghosts_broken": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "pd_episodes_started": {
+          "$ref": "common.schema.json#/$defs/count"
+        }
+      }
+    },
+    "pair_stats": {
+      "title": "PairStats",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "majnu_meter",
+        "chemistry_score",
+        "lsm",
+        "length_mirroring",
+        "emoji_mirroring",
+        "rhythm_overlap",
+        "shared_laughter",
+        "reciprocity",
+        "longest_rally",
+        "breadcrumb_events",
+        "first_affection",
+        "momentum",
+        "fast_start_fade",
+        "latency_trend_s_per_week"
+      ],
+      "properties": {
+        "majnu_meter": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "chemistry_score": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "lsm": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "length_mirroring": {
+          "description": "Spearman correlation of consecutive turn lengths.",
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "emoji_mirroring": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "rhythm_overlap": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "shared_laughter": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "reciprocity": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "longest_rally": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "breadcrumb_events": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "first_affection": {
+          "description": "Null when neither side has used an affection token.",
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "side",
+                "week"
+              ],
+              "properties": {
+                "side": {
+                  "$ref": "common.schema.json#/$defs/side"
+                },
+                "week": {
+                  "$ref": "common.schema.json#/$defs/count"
+                }
+              }
+            }
+          ]
+        },
+        "momentum": {
+          "$ref": "common.schema.json#/$defs/momentum"
+        },
+        "fast_start_fade": {
+          "description": "(affection + volume, last 4 weeks) / (same, first 4 weeks).",
+          "type": "number",
+          "minimum": 0
+        },
+        "latency_trend_s_per_week": {
+          "type": "number"
+        }
+      }
+    },
+    "metrics_block": {
+      "title": "MetricsBlock",
+      "description": "Shared by AbridgedPayload, LocalReport and DonationRecord.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "self",
+        "other",
+        "pair"
+      ],
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/side_stats"
+        },
+        "other": {
+          "$ref": "#/$defs/side_stats"
+        },
+        "pair": {
+          "$ref": "#/$defs/pair_stats"
+        }
+      }
+    },
+    "milestone_type": {
+      "title": "MilestoneType",
+      "enum": [
+        "FIRST",
+        "LAST",
+        "PEAK_VOLUME",
+        "LONGEST_SILENCE",
+        "COMEBACK",
+        "GHOST",
+        "LATENCY_SHIFT",
+        "EFFORT_FLIP",
+        "MIRRORING_SHIFT",
+        "FIRST_AFFECTION",
+        "LONGEST_RALLY",
+        "PURSUER_DISTANCER_BURST"
+      ]
+    },
+    "excerpt": {
+      "title": "Excerpt",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "speaker",
+        "dt_s",
+        "text"
+      ],
+      "properties": {
+        "speaker": {
+          "$ref": "common.schema.json#/$defs/side"
+        },
+        "dt_s": {
+          "description": "Seconds from the start of the milestone session.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "description": "Masked on-device; the server re-runs the PII patterns and rejects any hit with 422 PII_DETECTED.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      }
+    },
+    "milestone": {
+      "title": "Milestone",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "week",
+        "z",
+        "salience",
+        "session",
+        "excerpts"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^m[1-8]$"
+        },
+        "type": {
+          "$ref": "#/$defs/milestone_type"
+        },
+        "week": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "z": {
+          "description": "Robust z-score of the weekly first difference.",
+          "type": "number"
+        },
+        "salience": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "session": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "duration_min",
+            "msgs_self",
+            "msgs_other",
+            "initiator",
+            "closer",
+            "late_night"
+          ],
+          "properties": {
+            "duration_min": {
+              "$ref": "common.schema.json#/$defs/count"
+            },
+            "msgs_self": {
+              "$ref": "common.schema.json#/$defs/count"
+            },
+            "msgs_other": {
+              "$ref": "common.schema.json#/$defs/count"
+            },
+            "initiator": {
+              "$ref": "common.schema.json#/$defs/side"
+            },
+            "closer": {
+              "$ref": "common.schema.json#/$defs/side"
+            },
+            "late_night": {
+              "type": "boolean"
+            }
+          }
+        },
+        "excerpts": {
+          "type": "array",
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/excerpt"
+          }
+        }
+      }
+    }
+  }
+}

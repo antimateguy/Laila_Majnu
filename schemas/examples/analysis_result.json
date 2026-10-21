@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.1",
+  "request_id": "9b2f4c1e-7a35-4e0b-9d61-2f3c8a7e5b10",
+  "status": "complete",
+  "degraded_reason": null,
+  "tier": {
+    "id": "Tier_04",
+    "majnu_meter": 71,
+    "chemistry_score": 58,
+    "policy_version": "2026-10-21"
+  },
+  "narrative": {
+    "language": "hinglish",
+    "film_title": "Ek Tarfa Express",
+    "tagline": "Tum reply karte rahe, woh 'dekhti hoon' karti rahi",
+    "acts": [
+      {
+        "act": 1,
+        "title": "Meet-cute",
+        "text": "Pehle 8 hafte: 2 AM rallies of 40+ messages, and you said ❤️ first in week 6 ..."
+      },
+      {
+        "act": 2,
+        "title": "Interval twist",
+        "text": "Week 9 changed the background score: their replies went from minutes to hours ..."
+      },
+      {
+        "act": 3,
+        "title": "Now showing",
+        "text": "You still start 7 of 10 chats. They turn toward 61% of your bids ..."
+      }
+    ],
+    "dynamics": {
+      "chaser": "SELF",
+      "momentum": "FADING",
+      "confidence": 0.7
+    },
+    "milestone_notes": [
+      {
+        "id": "m1",
+        "caption": "Week 9: replies went from minutes to hours"
+      }
+    ],
+    "verdict": "Strong opening, slow second half. Let them write the next scene.",
+    "advice": [
+      "Let them start the next few conversations.",
+      "Ask one follow-up question about something they said."
+    ],
+    "flags": {
+      "boundary_signal": false
+    }
+  },
+  "provider": {
+    "name": "groq",
+    "model": "openai/gpt-oss-120b",
+    "latency_ms": 1100,
+    "tokens_in": 1290,
+    "tokens_out": 610
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/archetypes.schema.json",
+  "title": "Archetypes",
+  "description": "web/src/content/archetypes.json: one entry per tier per persona (10 x 2 = 20). Names and art ship only with the owner's approval; the production build fails unless every entry is approved. Uniqueness of (tier_id, persona) is checked by tools/check-archetypes.mjs. Source: docs/LLD.md, 'Archetype file and approval gate'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "entries"
+  ],
+  "properties": {
+    "version": {
+      "$ref": "common.schema.json#/$defs/policy_version"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    }
+  },
+  "$defs": {
+    "localized": {
+      "title": "Localized",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en",
+        "hinglish"
+      ],
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hinglish": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "entry": {
+      "title": "ArchetypeEntry",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier_id",
+        "persona",
+        "title",
+        "inspired_by",
+        "tagline",
+        "palette",
+        "art_key",
+        "status",
+        "approved_by"
+      ],
+      "properties": {
+        "tier_id": {
+          "$ref": "common.schema.json#/$defs/tier_id"
+        },
+        "persona": {
+          "$ref": "common.schema.json#/$defs/persona"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inspired_by": {
+          "description": "Text-only character reference. Never an actor's name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "tagline": {
+          "$ref": "#/$defs/localized"
+        },
+        "palette": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^#[0-9A-F]{6}$"
+          }
+        },
+        "art_key": {
+          "type": "string",
+          "pattern": "^tier0[0-9]_(majnu|laila)_v[1-9][0-9]*$"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "approved"
+          ]
+        },
+        "approved_by": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "description": "An approved entry names its approver.",
+          "if": {
+            "properties": {
+              "status": {
+                "const": "approved"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "approved_by": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

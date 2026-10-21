@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/metric_policy.schema.json",
+  "title": "MetricPolicy",
+  "description": "engine/assets/metric_policy.json: the versioned weights behind both headline scores and the confidence levels. The tier thresholds in engine/assets/tier_policy.json validate against $defs/tier_policy. Weights are v1 guesses, recalibrated later against donated outcomes. Source: docs/LLD.md, 'Headline scores' and 'Tier grid'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "chemistry",
+    "confidence"
+  ],
+  "properties": {
+    "version": {
+      "$ref": "common.schema.json#/$defs/policy_version"
+    },
+    "chemistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weights",
+        "lsm_rescale",
+        "momentum_values",
+        "friction_max_points"
+      ],
+      "properties": {
+        "weights": {
+          "description": "Must sum to 1 (checked by the engine's policy tests).",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "turn_toward",
+            "lsm",
+            "reciprocity",
+            "warmth",
+            "rhythm_overlap",
+            "momentum"
+          ],
+          "properties": {
+            "turn_toward": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "lsm": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "reciprocity": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "warmth": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "rhythm_overlap": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "momentum": {
+              "$ref": "common.schema.json#/$defs/unit"
+            }
+          }
+        },
+        "lsm_rescale": {
+          "description": "LSM is mapped linearly from [from, to] onto [0, 1] and clamped.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "from",
+            "to"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "to": {
+              "$ref": "common.schema.json#/$defs/unit"
+            }
+          }
+        },
+        "momentum_values": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "FADING",
+            "STEADY",
+            "RISING"
+          ],
+          "properties": {
+            "FADING": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "STEADY": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "RISING": {
+              "$ref": "common.schema.json#/$defs/unit"
+            }
+          }
+        },
+        "friction_max_points": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bootstrap_resamples",
+        "bootstrap_seed",
+        "interval",
+        "low_below_n",
+        "high_min_n"
+      ],
+      "properties": {
+        "bootstrap_resamples": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bootstrap_seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "interval": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 1
+        },
+        "low_below_n": {
+          "description": "Fewer relevant events than this => low confidence and a dimmed card.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "high_min_n": {
+          "description": "At least this many relevant events => high confidence; in between is medium.",
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "tier_policy": {
+      "title": "TierPolicy",
+      "description": "engine/assets/tier_policy.json, also served by GET /v1/policy. Integer scores; a boundary value falls in the band whose 'min' it meets.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "chemistry_high_min",
+        "chemistry_mid_min",
+        "majnu_all_you_above",
+        "majnu_they_chase_below",
+        "trailer_min_messages",
+        "trailer_min_days"
+      ],
+      "properties": {
+        "version": {
+          "$ref": "common.schema.json#/$defs/policy_version"
+        },
+        "chemistry_high_min": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "chemistry_mid_min": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "majnu_all_you_above": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "majnu_they_chase_below": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "trailer_min_messages": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "trailer_min_days": {
+          "$ref": "common.schema.json#/$defs/count"
+        }
+      }
+    }
+  }
+}

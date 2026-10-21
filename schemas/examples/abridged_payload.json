@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.1",
+  "engine_version": "0.1.0",
+  "metric_policy_version": "2026-10-21",
+  "request_id": "9b2f4c1e-7a35-4e0b-9d61-2f3c8a7e5b10",
+  "role": "MAJNU",
+  "platform": "whatsapp",
+  "capabilities": {
+    "reactions": false,
+    "seconds_precision": false,
+    "edit_markers": true,
+    "explicit_timezone": false
+  },
+  "span": {
+    "weeks": 31,
+    "sessions": 148,
+    "messages": 9412,
+    "trailer_mode": false
+  },
+  "language": {
+    "hinglish_share": 0.62
+  },
+  "metrics": {
+    "self": {
+      "latency_p50_s": 140,
+      "latency_p90_s": 2100,
+      "initiation_share": 0.71,
+      "msg_share": 0.63,
+      "char_share": 0.68,
+      "double_text_rate": 0.18,
+      "double_text_fast_share": 0.7,
+      "double_text_slow_share": 0.1,
+      "turn_toward_rate": 0.88,
+      "followup_q_rate": 0.21,
+      "dry_reply_rate": 0.05,
+      "affection_rate": 3.1,
+      "we_talk_rate": 4.2,
+      "conflict_rate": 0.6,
+      "night_share": 0.22,
+      "ghost_events": 1,
+      "ghosts_broken": 4,
+      "pd_episodes_started": 6
+    },
+    "other": {
+      "latency_p50_s": 960,
+      "latency_p90_s": 14400,
+      "initiation_share": 0.29,
+      "msg_share": 0.37,
+      "char_share": 0.32,
+      "double_text_rate": 0.04,
+      "double_text_fast_share": 0.2,
+      "double_text_slow_share": 0.5,
+      "turn_toward_rate": 0.61,
+      "followup_q_rate": 0.07,
+      "dry_reply_rate": 0.24,
+      "affection_rate": 1.2,
+      "we_talk_rate": 1.9,
+      "conflict_rate": 0.3,
+      "night_share": 0.18,
+      "ghost_events": 4,
+      "ghosts_broken": 1,
+      "pd_episodes_started": 1
+    },
+    "pair": {
+      "majnu_meter": 71,
+      "chemistry_score": 58,
+      "lsm": 0.81,
+      "length_mirroring": 0.34,
+      "emoji_mirroring": 0.27,
+      "rhythm_overlap": 0.66,
+      "shared_laughter": 0.38,
+      "reciprocity": 0.62,
+      "longest_rally": 42,
+      "breadcrumb_events": 2,
+      "first_affection": {
+        "side": "SELF",
+        "week": 6
+      },
+      "momentum": "FADING",
+      "fast_start_fade": 0.45,
+      "latency_trend_s_per_week": 41.5
+    }
+  },
+  "milestones": [
+    {
+      "id": "m1",
+      "type": "LATENCY_SHIFT",
+      "week": 9,
+      "z": -3.1,
+      "salience": 0.82,
+      "session": {
+        "duration_min": 94,
+        "msgs_self": 31,
+        "msgs_other": 12,
+        "initiator": "SELF",
+        "closer": "OTHER",
+        "late_night": true
+      },
+      "excerpts": [
+        {
+          "speaker": "SELF",
+          "dt_s": 0,
+          "text": "kal [NAME] ki party mein aa rahi ho?"
+        },
+        {
+          "speaker": "OTHER",
+          "dt_s": 5400,
+          "text": "dekhti hoon"
+        }
+      ]
+    }
+  ],
+  "excerpt_mode": "masked",
+  "est_tokens": 1240
+}

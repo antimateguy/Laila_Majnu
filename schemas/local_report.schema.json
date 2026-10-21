@@ -1,0 +1,599 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/local_report.schema.json",
+  "title": "LocalReport",
+  "description": "What lm_analyze returns. It never leaves the device and is never sent anywhere. Source: docs/LLD.md, 'LocalReport'; the types the LLD leaves undefined are drafts (ADR-0008).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "persona",
+    "span",
+    "metrics",
+    "confidence",
+    "tier",
+    "weekly",
+    "monthly_initiation",
+    "latency_hist",
+    "heatmap",
+    "ghosts",
+    "top_emojis",
+    "lsm_categories",
+    "milestones",
+    "score_inputs",
+    "fingerprint_seed"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "persona": {
+      "$ref": "common.schema.json#/$defs/persona"
+    },
+    "span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first_date",
+        "last_date",
+        "weeks",
+        "sessions",
+        "messages",
+        "trailer_mode"
+      ],
+      "properties": {
+        "first_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "last_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "weeks": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "sessions": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "messages": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200000
+        },
+        "trailer_mode": {
+          "type": "boolean"
+        }
+      }
+    },
+    "metrics": {
+      "$ref": "abridged_payload.schema.json#/$defs/metrics_block"
+    },
+    "confidence": {
+      "description": "One entry per metric, plus 90% ranges for the headline scores and latency medians.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "initiation_share",
+        "effort_share",
+        "double_text",
+        "reply_speed",
+        "pursuer_distancer",
+        "turn_toward",
+        "followup_questions",
+        "dry_reply",
+        "lsm",
+        "length_mirroring",
+        "emoji_mirroring",
+        "rhythm_overlap",
+        "longest_rally",
+        "affection",
+        "we_talk",
+        "shared_laughter",
+        "night_owl",
+        "conflict",
+        "ghosts",
+        "breadcrumbs",
+        "momentum",
+        "fast_start_fade",
+        "majnu_meter",
+        "chemistry_score",
+        "latency_p50_self",
+        "latency_p50_other"
+      ],
+      "properties": {
+        "initiation_share": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "effort_share": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "double_text": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "reply_speed": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "pursuer_distancer": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "turn_toward": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "followup_questions": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "dry_reply": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "lsm": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "length_mirroring": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "emoji_mirroring": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "rhythm_overlap": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "longest_rally": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "affection": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "we_talk": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "shared_laughter": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "night_owl": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "conflict": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "ghosts": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "breadcrumbs": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "momentum": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "fast_start_fade": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "majnu_meter": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "chemistry_score": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "latency_p50_self": {
+          "$ref": "#/$defs/confidence_entry"
+        },
+        "latency_p50_other": {
+          "$ref": "#/$defs/confidence_entry"
+        }
+      }
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "majnu_meter",
+        "chemistry_score",
+        "plot_twist"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/tier_id"
+        },
+        "majnu_meter": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "chemistry_score": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "plot_twist": {
+          "description": "Majnu Meter below 35: they chase you.",
+          "type": "boolean"
+        }
+      }
+    },
+    "weekly": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/weekly_point"
+      }
+    },
+    "monthly_initiation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "month",
+          "self",
+          "other"
+        ],
+        "properties": {
+          "month": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+          },
+          "self": {
+            "description": "Sessions SELF started that month.",
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "other": {
+            "description": "Sessions OTHER started that month.",
+            "$ref": "common.schema.json#/$defs/count"
+          }
+        }
+      }
+    },
+    "latency_hist": {
+      "description": "Reply counts in 6 buckets: < 1 m, 1-5 m, 5-30 m, 30 m-2 h, 2-8 h, > 8 h.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "self",
+        "other"
+      ],
+      "properties": {
+        "self": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "other": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "minItems": 6,
+          "maxItems": 6
+        }
+      }
+    },
+    "heatmap": {
+      "description": "Message counts, 7 x 24 row-major, Monday first, local hours.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "self",
+        "other"
+      ],
+      "properties": {
+        "self": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "minItems": 168,
+          "maxItems": 168
+        },
+        "other": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "minItems": 168,
+          "maxItems": 168
+        }
+      }
+    },
+    "ghosts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "week",
+          "days",
+          "broken_by"
+        ],
+        "properties": {
+          "week": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "days": {
+            "type": "number",
+            "minimum": 0
+          },
+          "broken_by": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/side"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "top_emojis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "self",
+        "other"
+      ],
+      "properties": {
+        "self": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 5
+        },
+        "other": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "maxItems": 5
+        }
+      }
+    },
+    "lsm_categories": {
+      "description": "The 9 function-word categories of Ireland et al. 2011.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "self",
+          "other"
+        ],
+        "properties": {
+          "name": {
+            "enum": [
+              "ppron",
+              "ipron",
+              "article",
+              "conj",
+              "prep",
+              "auxverb",
+              "adverb",
+              "negate",
+              "quant"
+            ]
+          },
+          "self": {
+            "$ref": "common.schema.json#/$defs/unit"
+          },
+          "other": {
+            "$ref": "common.schema.json#/$defs/unit"
+          }
+        }
+      },
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "milestones": {
+      "description": "LocalMilestone is the payload milestone shape; excerpts are masked and shown only on the device.",
+      "type": "array",
+      "items": {
+        "$ref": "abridged_payload.schema.json#/$defs/milestone"
+      },
+      "maxItems": 8
+    },
+    "score_inputs": {
+      "$ref": "#/$defs/score_inputs"
+    },
+    "fingerprint_seed": {
+      "description": "Hex hash of the metric vector; identical chats give identical art.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{16,64}$"
+    }
+  },
+  "$defs": {
+    "metric_id": {
+      "title": "MetricId",
+      "description": "The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008, draft).",
+      "enum": [
+        "initiation_share",
+        "effort_share",
+        "double_text",
+        "reply_speed",
+        "pursuer_distancer",
+        "turn_toward",
+        "followup_questions",
+        "dry_reply",
+        "lsm",
+        "length_mirroring",
+        "emoji_mirroring",
+        "rhythm_overlap",
+        "longest_rally",
+        "affection",
+        "we_talk",
+        "shared_laughter",
+        "night_owl",
+        "conflict",
+        "ghosts",
+        "breadcrumbs",
+        "momentum",
+        "fast_start_fade"
+      ]
+    },
+    "confidence_entry": {
+      "title": "ConfidenceEntry",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "n",
+        "level"
+      ],
+      "properties": {
+        "n": {
+          "description": "Relevant events behind the figure.",
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "level": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "lo": {
+          "description": "Lower bound of the 90% seeded-bootstrap range.",
+          "type": "number"
+        },
+        "hi": {
+          "description": "Upper bound of the 90% seeded-bootstrap range.",
+          "type": "number"
+        }
+      }
+    },
+    "weekly_point": {
+      "title": "WeeklyPoint",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "week",
+        "msgs",
+        "lat_self_p50",
+        "lat_other_p50",
+        "init_share",
+        "reciprocity",
+        "lsm",
+        "affection"
+      ],
+      "properties": {
+        "week": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "msgs": {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        "lat_self_p50": {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        "lat_other_p50": {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        "init_share": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "reciprocity": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "lsm": {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        "affection": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "score_inputs": {
+      "title": "ScoreInputs",
+      "description": "What the what-if sliders perturb; lm_score reruns only ScorePolicy on it (ADR-0008, draft).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trailer_mode",
+        "majnu",
+        "chemistry"
+      ],
+      "properties": {
+        "trailer_mode": {
+          "type": "boolean"
+        },
+        "majnu": {
+          "description": "Raw terms of the Majnu Meter; ScorePolicy derives the latency gap from the two medians.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "self_initiation_share",
+            "self_msg_share",
+            "self_double_text_share",
+            "latency_p50_self_s",
+            "latency_p50_other_s",
+            "self_pd_share"
+          ],
+          "properties": {
+            "self_initiation_share": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "self_msg_share": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "self_double_text_share": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "latency_p50_self_s": {
+              "$ref": "common.schema.json#/$defs/seconds"
+            },
+            "latency_p50_other_s": {
+              "$ref": "common.schema.json#/$defs/seconds"
+            },
+            "self_pd_share": {
+              "$ref": "common.schema.json#/$defs/unit"
+            }
+          }
+        },
+        "chemistry": {
+          "description": "Components of the Chemistry Score before weighting.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "turn_toward_self",
+            "turn_toward_other",
+            "lsm",
+            "reciprocity",
+            "warmth",
+            "rhythm_overlap",
+            "momentum",
+            "friction"
+          ],
+          "properties": {
+            "turn_toward_self": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "turn_toward_other": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "lsm": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "reciprocity": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "warmth": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "rhythm_overlap": {
+              "$ref": "common.schema.json#/$defs/unit"
+            },
+            "momentum": {
+              "$ref": "common.schema.json#/$defs/momentum"
+            },
+            "friction": {
+              "description": "Fraction of the maximum friction penalty (0-1).",
+              "$ref": "common.schema.json#/$defs/unit"
+            }
+          }
+        }
+      }
+    }
+  }
+}
