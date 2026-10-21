@@ -1,0 +1,26 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 24, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "native-asan",
+      "displayName": "Native Debug + ASan/UBSan (tests)",
+      "binaryDir": "${sourceDir}/build/native-asan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "LM_SANITIZE": "ON",
+        "LM_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [{ "name": "native-asan", "configurePreset": "native-asan" }],
+  "testPresets": [
+    {
+      "name": "native-asan",
+      "configurePreset": "native-asan",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error" }
+    }
+  ]
+}
