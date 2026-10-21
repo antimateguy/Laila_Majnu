@@ -1,0 +1,36 @@
+name: contracts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  schemas-and-codegen:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: api/requirements-dev.txt
+      - run: npm ci
+      - run: python -m venv api/.venv && api/.venv/bin/pip install -r api/requirements-dev.txt
+      - name: Schema tests and archetype gate tests
+        run: npm run test:tools
+      - name: Generated TypeScript and Pydantic match schemas/
+        run: npm run codegen:check
+      - name: Archetypes pass the development gate
+        run: npm run archetypes:check
