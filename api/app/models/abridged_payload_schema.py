@@ -21,60 +21,54 @@ class Span(BaseModel):
     )
 
 
-class Language(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    hinglish_share: float = Field(..., ge=0.0, le=1.0)
-
-
 class SideStats(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    latency_p50_s: float = Field(..., ge=0.0)
-    latency_p90_s: float = Field(..., ge=0.0)
-    initiation_share: float = Field(..., ge=0.0, le=1.0)
-    msg_share: float = Field(..., ge=0.0, le=1.0)
-    char_share: float = Field(..., ge=0.0, le=1.0)
-    double_text_rate: float = Field(..., ge=0.0, le=1.0)
-    double_text_fast_share: float = Field(
+    latency_p50_s: float | None = Field(..., ge=0.0)
+    latency_p90_s: float | None = Field(..., ge=0.0)
+    initiation_share: float | None = Field(..., ge=0.0, le=1.0)
+    msg_share: float | None = Field(..., ge=0.0, le=1.0)
+    char_share: float | None = Field(..., ge=0.0, le=1.0)
+    double_text_rate: float | None = Field(..., ge=0.0, le=1.0)
+    double_text_fast_share: float | None = Field(
         ...,
         description="Share of SELF/OTHER double texts sent < 30 min after their own last message.",
         ge=0.0,
         le=1.0,
     )
-    double_text_slow_share: float = Field(
+    double_text_slow_share: float | None = Field(
         ...,
         description="Share of double texts sent > 4 h after their own last message. Added by ADR-0002.",
         ge=0.0,
         le=1.0,
     )
-    turn_toward_rate: float = Field(..., ge=0.0, le=1.0)
-    followup_q_rate: float = Field(..., ge=0.0, le=1.0)
-    dry_reply_rate: float = Field(..., ge=0.0, le=1.0)
-    affection_rate: float = Field(
+    turn_toward_rate: float | None = Field(..., ge=0.0, le=1.0)
+    followup_q_rate: float | None = Field(..., ge=0.0, le=1.0)
+    dry_reply_rate: float | None = Field(..., ge=0.0, le=1.0)
+    affection_rate: float | None = Field(
+        ..., description="Affection tokens per 100 messages.", ge=0.0, le=100.0
+    )
+    we_talk_rate: float | None = Field(
+        ..., description="We-talk words per 1,000 words.", ge=0.0, le=100.0
+    )
+    conflict_rate: float | None = Field(
         ...,
-        description="Per 100 messages (affection, conflict) or per 1,000 words (we-talk).",
+        description="Apology and conflict tokens per 100 messages.",
         ge=0.0,
         le=100.0,
     )
-    we_talk_rate: float = Field(
-        ...,
-        description="Per 100 messages (affection, conflict) or per 1,000 words (we-talk).",
-        ge=0.0,
-        le=100.0,
+    night_share: float | None = Field(..., ge=0.0, le=1.0)
+    ghost_events: int | None = Field(..., ge=0)
+    ghosts_broken: int | None = Field(..., ge=0)
+    pd_episodes_started: int | None = Field(..., ge=0)
+
+
+class Language(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
     )
-    conflict_rate: float = Field(
-        ...,
-        description="Per 100 messages (affection, conflict) or per 1,000 words (we-talk).",
-        ge=0.0,
-        le=100.0,
-    )
-    night_share: float = Field(..., ge=0.0, le=1.0)
-    ghost_events: int = Field(..., ge=0)
-    ghosts_broken: int = Field(..., ge=0)
-    pd_episodes_started: int = Field(..., ge=0)
+    hinglish_share: float = Field(..., ge=0.0, le=1.0)
 
 
 class FirstAffection(BaseModel):
@@ -89,31 +83,47 @@ class PairStats(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    majnu_meter: int = Field(..., ge=0, le=100)
-    chemistry_score: int = Field(..., ge=0, le=100)
-    lsm: float = Field(..., ge=0.0, le=1.0)
-    length_mirroring: float = Field(
+    majnu_meter: int | None = Field(
+        ...,
+        description="Null when under 60% of the score's weight is available (ADR-0008).",
+        ge=0,
+        le=100,
+    )
+    chemistry_score: int | None = Field(
+        ...,
+        description="Null when under 60% of the score's weight is available (ADR-0008).",
+        ge=0,
+        le=100,
+    )
+    lsm: float | None = Field(..., ge=0.0, le=1.0)
+    length_mirroring: float | None = Field(
         ...,
         description="Spearman correlation of consecutive turn lengths.",
         ge=-1.0,
         le=1.0,
     )
-    emoji_mirroring: float = Field(..., ge=0.0, le=1.0)
-    rhythm_overlap: float = Field(..., ge=0.0, le=1.0)
-    shared_laughter: float = Field(..., ge=0.0, le=1.0)
-    reciprocity: float = Field(..., ge=0.0, le=1.0)
-    longest_rally: int = Field(..., ge=0)
-    breadcrumb_events: int = Field(..., ge=0)
-    first_affection: FirstAffection | None = Field(
-        ..., description="Null when neither side has used an affection token."
+    emoji_mirroring: float | None = Field(..., ge=0.0, le=1.0)
+    rhythm_overlap: float | None = Field(..., ge=0.0, le=1.0)
+    shared_laughter: float | None = Field(..., ge=0.0, le=1.0)
+    reciprocity: float | None = Field(
+        ...,
+        description="Effort balance: 1 - |2 x SELF's character share - 1| (ADR-0008).",
+        ge=0.0,
+        le=1.0,
     )
-    momentum: Literal["RISING", "STEADY", "FADING"] = Field(..., title="Momentum")
-    fast_start_fade: float = Field(
+    longest_rally: int | None = Field(..., ge=0)
+    breadcrumb_events: int | None = Field(..., ge=0)
+    first_affection: FirstAffection | None = Field(
+        ...,
+        description="Null when neither side has used an affection token, or when the affection metric is unavailable (LocalReport.unavailable tells the two apart).",
+    )
+    momentum: Literal["RISING", "STEADY", "FADING"] | None
+    fast_start_fade: float | None = Field(
         ...,
         description="(affection + volume, last 4 weeks) / (same, first 4 weeks).",
         ge=0.0,
     )
-    latency_trend_s_per_week: float
+    latency_trend_s_per_week: float | None
 
 
 class MetricsBlock(BaseModel):

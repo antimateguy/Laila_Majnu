@@ -21,7 +21,10 @@
         "weights",
         "lsm_rescale",
         "momentum_values",
-        "friction_max_points"
+        "friction_max_points",
+        "warmth",
+        "friction",
+        "min_available_weight"
       ],
       "properties": {
         "weights": {
@@ -98,6 +101,58 @@
           "type": "number",
           "minimum": 0,
           "maximum": 100
+        },
+        "warmth": {
+          "description": "Warmth = mean of min(1, lower side's affection / affection_cap), min(1, lower side's we-talk / we_talk_cap) and shared laughter.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "affection_cap_per_100_msgs",
+            "we_talk_cap_per_1000_words"
+          ],
+          "properties": {
+            "affection_cap_per_100_msgs": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "we_talk_cap_per_1000_words": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "friction": {
+          "description": "Friction = mean of the four capped terms below; the penalty is friction_max_points x friction.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "conflict_cap_per_100_msgs",
+            "ghosts_cap_per_10_weeks",
+            "breadcrumbs_cap",
+            "pd_episodes_cap_per_10_weeks"
+          ],
+          "properties": {
+            "conflict_cap_per_100_msgs": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "ghosts_cap_per_10_weeks": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "breadcrumbs_cap": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "pd_episodes_cap_per_10_weeks": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        "min_available_weight": {
+          "description": "A headline score is null when less than this share of its weight is available.",
+          "$ref": "common.schema.json#/$defs/unit"
         }
       }
     },
@@ -132,7 +187,7 @@
           "minimum": 1
         },
         "high_min_n": {
-          "description": "At least this many relevant events => high confidence; in between is medium.",
+          "description": "At least this many relevant events => high confidence; from low_below_n up to this is medium.",
           "type": "integer",
           "minimum": 1
         }

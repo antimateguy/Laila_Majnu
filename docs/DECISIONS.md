@@ -10,7 +10,7 @@ Each entry records a deviation from, or a gap-fill in, `docs/LLD.md`: context, d
 ## ADR-0002: `double_text_slow_share` added to the shared metrics block
 - **Context:** Metric #3 splits double texts into < 30 min and > 4 h. `SideStats` has both shares, but the payload example carries only the fast share, and `LocalReport.metrics` reuses the payload shape, so F14 / scene 5 would lose the > 4 h stat.
 - **Decision:** Add `double_text_slow_share` (0–1, required) to `side_stats`. `emoji_density` stays out (no scene uses it). Approved by the owner on 21 Oct 2026.
-- **Consequence:** The payload grows by two numbers (~4 tokens). DonationRecord gains it too.
+- **Consequence:** The payload grows by two numbers (~4 tokens). DonationRecord gains it too. Superseded in part by ADR-0008: like every metric, it may be null.
 
 ## ADR-0003: `length_mirroring` ranges −1 to 1
 - **Context:** It is a Spearman correlation, but the validation table does not list it.
@@ -32,13 +32,30 @@ Each entry records a deviation from, or a gap-fill in, `docs/LLD.md`: context, d
 - **Decision:** One extra schema file, `common.schema.json`, with no root document. `metrics_block` and `milestone` stay in `abridged_payload.schema.json`, since the LLD defines them as "same shape as AbridgedPayload".
 - **Consequence:** 8 schema files instead of the 7 listed in the prompt layout.
 
-## ADR-0008: Draft types the LLD leaves undefined in `LocalReport` (PENDING OWNER APPROVAL)
-- **MetricId:** the 22 catalogue metrics in order: `initiation_share, effort_share, double_text, reply_speed, pursuer_distancer, turn_toward, followup_questions, dry_reply, lsm, length_mirroring, emoji_mirroring, rhythm_overlap, longest_rally, affection, we_talk, shared_laughter, night_owl, conflict, ghosts, breadcrumbs, momentum, fast_start_fade`.
-- **Confidence keys:** the 22 ids plus `majnu_meter`, `chemistry_score`, `latency_p50_self`, `latency_p50_other` (the figures that get 90% ranges).
-- **ScoreInputs:** `trailer_mode`, the raw Majnu terms (with both latency medians, so the reply-speed slider works), and the Chemistry components before weighting (`friction` as a 0–1 fraction of the max penalty).
-- **LocalMilestone:** identical to the payload milestone.
-- **monthly_initiation:** session counts, not shares. **lsm_categories:** the 9 Ireland et al. 2011 categories.
-- **Open:** the follow-up-question slider affects neither score formula; reciprocity, warmth and friction need exact formulas before Phase 3; the medium/high confidence cut (`high_min_n`) is unset; how a fail-soft "unavailable" metric is represented is undecided.
+## ADR-0008: `LocalReport` types and score definitions the LLD leaves open
+Approved by the owner on 21 Oct 2026.
+
+- **Context:** The LLD uses `MetricId`, `ScoreInputs` and `LocalMilestone` without defining them, names reciprocity, warmth and friction without formulas, sets only the low-confidence cut, and requires fail-soft metrics without saying how a failed metric is represented.
+- **Decision — types:**
+  - `MetricId`: the 22 catalogue metrics in order: `initiation_share, effort_share, double_text, reply_speed, pursuer_distancer, turn_toward, followup_questions, dry_reply, lsm, length_mirroring, emoji_mirroring, rhythm_overlap, longest_rally, affection, we_talk, shared_laughter, night_owl, conflict, ghosts, breadcrumbs, momentum, fast_start_fade`.
+  - Confidence keys: the 22 ids plus `majnu_meter`, `chemistry_score`, `latency_p50_self`, `latency_p50_other`, the four figures with 90% ranges.
+  - `ScoreInputs`: `trailer_mode`; the raw Majnu terms, including both latency medians so the reply-speed slider works; the Chemistry components in 0–1 before weighting, with warmth and friction already folded using the policy caps.
+  - `LocalMilestone` is the payload milestone. `monthly_initiation` holds session counts. `lsm_categories` are the 9 categories of Ireland et al. 2011.
+- **Decision — score definitions** (weights and caps live in `metric_policy.json`; caps are v1 guesses to recalibrate against donated outcomes):
+  - **Shares with an empty denominator are 0.5** (balanced), e.g. neither side double-texts.
+  - **Majnu Meter** = round(100 × mean of the available terms): SELF's share of initiated sessions, of messages, of double texts, of pursuer–distancer episodes, and the latency gap other_p50 / (self_p50 + other_p50).
+  - **Reciprocity** = effort balance = 1 − |2 × SELF's character share − 1|, per chat and per week. Consequence: it overlaps the Majnu Meter, so a very one-sided chat loses up to 15 Chemistry points.
+  - **Warmth** = mean of min(1, lower side's affection rate / 2 per 100 messages), min(1, lower side's we-talk / 5 per 1,000 words), and shared laughter. Using the lower side means warmth needs both people.
+  - **Friction** = mean of min(1, chat conflict rate / 2 per 100 messages), min(1, ghosts per 10 weeks / 2), min(1, breadcrumbs / 3), min(1, pursuer–distancer episodes per 10 weeks / 5). Penalty = 15 × friction.
+  - **Chemistry** = clamp(100 × Σ wᵢxᵢ / Σ wᵢ over available components − penalty, 0, 100), rounded half up, with the LLD weights (turn-toward uses the lower side, LSM is rescaled from 0.5–1 to 0–1, momentum maps FADING 0 / STEADY 0.5 / RISING 1).
+  - **Confidence:** under 30 relevant events is low (LLD); 30–99 is medium; 100 or more is high.
+- **Decision — fail-soft:** every metric field in the shared metrics block is nullable, and null means "not measured", never zero. `LocalReport.unavailable` lists `{metric, code}` with code `INSUFFICIENT_DATA`, `NOT_SUPPORTED_BY_PLATFORM` or `COMPUTE_ERROR`. Scores drop null terms and renormalise. A score is null when under 60% of its weight is available (`min_available_weight`). Either score null ⇒ `Tier_00` and a "not enough data" message.
+- **Consequence:** The narrative prompt must say that null means "not measured". The fact-check gate must never accept a number for a null field. `first_affection: null` is ambiguous on its own; `unavailable` tells "nobody said it yet" apart from "could not measure".
+
+## ADR-0018: Director's Cut slider: turn-toward replaces follow-up questions
+- **Context:** The LLD's scene 12 sliders are reply speed, initiation share and follow-up questions. Follow-up questions feed neither headline score (ADR-0008), so that slider would never move a dial.
+- **Decision:** The third slider is SELF's turn-toward rate ("turning toward their bids"), the largest Chemistry input. Reply speed and initiation move the Majnu Meter, and turn-toward moves Chemistry, so both axes of the tier grid respond. Follow-up questions stay a card metric and a narrative tip. Approved by the owner on 21 Oct 2026.
+- **Consequence:** Chemistry uses the lower side's turn-toward, so raising SELF's rate only changes the score when SELF is the lower side. The slider's help text has to say so.
 
 ## ADR-0009: AnalysisResult `provider` is null when degraded
 - **Decision:** `complete` ⇒ narrative + provider, `degraded_reason: null`; `degraded` ⇒ reason, `narrative: null`, `provider: null`. `provider.name` is `groq` | `workers_ai`.

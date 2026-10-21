@@ -56,6 +56,41 @@ describe("AbridgedPayload", () => {
   it("rejects est_tokens over the 1,300 budget", () => rejects(mutate(base, (d) => { d.est_tokens = 1301; })));
 });
 
+describe("fail-soft metrics (ADR-0008)", () => {
+  const payload = validatorFor(ajv, "abridged_payload.schema.json");
+  const report = validatorFor(ajv, "local_report.schema.json");
+  const result = validatorFor(ajv, "analysis_result.schema.json");
+  const ok = (validate, doc) => expect(validate(doc), JSON.stringify(validate.errors)).toBe(true);
+
+  it("accepts a null metric as 'not measured'", () =>
+    ok(payload, mutate(example("abridged_payload"), (d) => { d.metrics.other.latency_p50_s = null; d.metrics.pair.lsm = null; })));
+  it("accepts null headline scores", () =>
+    ok(payload, mutate(example("abridged_payload"), (d) => { d.metrics.pair.majnu_meter = null; d.metrics.pair.chemistry_score = null; })));
+  it("still requires every metric key, even when null", () =>
+    expect(payload(mutate(example("abridged_payload"), (d) => { delete d.metrics.pair.lsm; }))).toBe(false));
+  it("accepts an unavailable entry with a known code", () =>
+    ok(report, mutate(example("local_report"), (d) => { d.unavailable = [{ metric: "lsm", code: "INSUFFICIENT_DATA" }]; })));
+  it("rejects an unknown unavailable code", () =>
+    expect(report(mutate(example("local_report"), (d) => { d.unavailable = [{ metric: "lsm", code: "OOPS" }]; }))).toBe(false));
+  it("rejects an unavailable entry for a non-metric", () =>
+    expect(report(mutate(example("local_report"), (d) => { d.unavailable = [{ metric: "majnu_meter", code: "COMPUTE_ERROR" }]; }))).toBe(false));
+  it("accepts null score inputs and a null-score Tier_00", () =>
+    ok(report, mutate(example("local_report"), (d) => {
+      d.score_inputs.chemistry.lsm = null;
+      d.tier = { id: "Tier_00", majnu_meter: null, chemistry_score: null, plot_twist: false };
+    })));
+  it("accepts a server tier with null scores", () =>
+    ok(result, mutate(example("analysis_result.degraded"), (d) => { d.tier.majnu_meter = null; d.tier.chemistry_score = null; d.tier.id = "Tier_00"; })));
+});
+
+describe("MetricPolicy", () => {
+  const validate = validatorFor(ajv, "metric_policy.schema.json");
+  it("requires the warmth and friction caps", () =>
+    expect(validate(mutate(example("metric_policy"), (d) => { delete d.chemistry.friction; }))).toBe(false));
+  it("rejects a zero cap", () =>
+    expect(validate(mutate(example("metric_policy"), (d) => { d.chemistry.warmth.affection_cap_per_100_msgs = 0; }))).toBe(false));
+});
+
 describe("AnalysisResult status coupling", () => {
   const validate = validatorFor(ajv, "analysis_result.schema.json");
   it("rejects complete without a narrative", () =>

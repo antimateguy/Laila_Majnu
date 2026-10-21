@@ -39,11 +39,11 @@ class Tier(BaseModel):
         "Tier_09",
     ] = Field(
         ...,
-        description="Tier_00 is trailer mode; Tier_01..Tier_09 are the 3x3 grid in row-major order.",
+        description="Tier_00 for trailer mode or when either score is null.",
         title="TierId",
     )
-    majnu_meter: int = Field(..., ge=0, le=100)
-    chemistry_score: int = Field(..., ge=0, le=100)
+    majnu_meter: int | None = Field(..., ge=0, le=100)
+    chemistry_score: int | None = Field(..., ge=0, le=100)
     plot_twist: bool = Field(..., description="Majnu Meter below 35: they chase you.")
 
 
@@ -116,64 +116,6 @@ class LsmCategory(BaseModel):
     other: float = Field(..., ge=0.0, le=1.0)
 
 
-class MetricId(
-    RootModel[
-        Literal[
-            "initiation_share",
-            "effort_share",
-            "double_text",
-            "reply_speed",
-            "pursuer_distancer",
-            "turn_toward",
-            "followup_questions",
-            "dry_reply",
-            "lsm",
-            "length_mirroring",
-            "emoji_mirroring",
-            "rhythm_overlap",
-            "longest_rally",
-            "affection",
-            "we_talk",
-            "shared_laughter",
-            "night_owl",
-            "conflict",
-            "ghosts",
-            "breadcrumbs",
-            "momentum",
-            "fast_start_fade",
-        ]
-    ]
-):
-    root: Literal[
-        "initiation_share",
-        "effort_share",
-        "double_text",
-        "reply_speed",
-        "pursuer_distancer",
-        "turn_toward",
-        "followup_questions",
-        "dry_reply",
-        "lsm",
-        "length_mirroring",
-        "emoji_mirroring",
-        "rhythm_overlap",
-        "longest_rally",
-        "affection",
-        "we_talk",
-        "shared_laughter",
-        "night_owl",
-        "conflict",
-        "ghosts",
-        "breadcrumbs",
-        "momentum",
-        "fast_start_fade",
-    ] = Field(
-        ...,
-        description="The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008, draft).",
-        title="MetricId",
-    )
-
-
 class ConfidenceEntry(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -206,26 +148,26 @@ class Majnu(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    self_initiation_share: float = Field(..., ge=0.0, le=1.0)
-    self_msg_share: float = Field(..., ge=0.0, le=1.0)
-    self_double_text_share: float = Field(..., ge=0.0, le=1.0)
-    latency_p50_self_s: float = Field(..., ge=0.0)
-    latency_p50_other_s: float = Field(..., ge=0.0)
-    self_pd_share: float = Field(..., ge=0.0, le=1.0)
+    self_initiation_share: float | None = Field(..., ge=0.0, le=1.0)
+    self_msg_share: float | None = Field(..., ge=0.0, le=1.0)
+    self_double_text_share: float | None = Field(..., ge=0.0, le=1.0)
+    latency_p50_self_s: float | None = Field(..., ge=0.0)
+    latency_p50_other_s: float | None = Field(..., ge=0.0)
+    self_pd_share: float | None = Field(..., ge=0.0, le=1.0)
 
 
 class Chemistry(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
-    turn_toward_self: float = Field(..., ge=0.0, le=1.0)
-    turn_toward_other: float = Field(..., ge=0.0, le=1.0)
-    lsm: float = Field(..., ge=0.0, le=1.0)
-    reciprocity: float = Field(..., ge=0.0, le=1.0)
-    warmth: float = Field(..., ge=0.0, le=1.0)
-    rhythm_overlap: float = Field(..., ge=0.0, le=1.0)
-    momentum: Literal["RISING", "STEADY", "FADING"] = Field(..., title="Momentum")
-    friction: float = Field(
+    turn_toward_self: float | None = Field(..., ge=0.0, le=1.0)
+    turn_toward_other: float | None = Field(..., ge=0.0, le=1.0)
+    lsm: float | None = Field(..., ge=0.0, le=1.0)
+    reciprocity: float | None = Field(..., ge=0.0, le=1.0)
+    warmth: float | None = Field(..., ge=0.0, le=1.0)
+    rhythm_overlap: float | None = Field(..., ge=0.0, le=1.0)
+    momentum: Literal["RISING", "STEADY", "FADING"] | None
+    friction: float | None = Field(
         ...,
         description="Fraction of the maximum friction penalty (0-1).",
         ge=0.0,
@@ -240,10 +182,51 @@ class ScoreInputs(BaseModel):
     trailer_mode: bool
     majnu: Majnu = Field(
         ...,
-        description="Raw terms of the Majnu Meter; ScorePolicy derives the latency gap from the two medians.",
+        description="Raw terms of the Majnu Meter. Each share is SELF's share of a both-sides count (0.5 when the count is 0); ScorePolicy derives the latency gap from the two medians.",
     )
     chemistry: Chemistry = Field(
-        ..., description="Components of the Chemistry Score before weighting."
+        ...,
+        description="Chemistry components in 0-1 before weighting; warmth and friction are already folded with the policy caps. Null components are dropped and the remaining weights renormalised.",
+    )
+
+
+class UnavailableMetric(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    metric: Literal[
+        "initiation_share",
+        "effort_share",
+        "double_text",
+        "reply_speed",
+        "pursuer_distancer",
+        "turn_toward",
+        "followup_questions",
+        "dry_reply",
+        "lsm",
+        "length_mirroring",
+        "emoji_mirroring",
+        "rhythm_overlap",
+        "longest_rally",
+        "affection",
+        "we_talk",
+        "shared_laughter",
+        "night_owl",
+        "conflict",
+        "ghosts",
+        "breadcrumbs",
+        "momentum",
+        "fast_start_fade",
+    ] = Field(
+        ...,
+        description="The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008).",
+        title="MetricId",
+    )
+    code: Literal["INSUFFICIENT_DATA", "NOT_SUPPORTED_BY_PLATFORM", "COMPUTE_ERROR"] = (
+        Field(
+            ...,
+            description="INSUFFICIENT_DATA: nothing to measure (e.g. no replies). NOT_SUPPORTED_BY_PLATFORM: the export lacks the signal. COMPUTE_ERROR: the metric failed.",
+        )
     )
 
 
@@ -327,4 +310,8 @@ class LocalReport(BaseModel):
         ...,
         description="Hex hash of the metric vector; identical chats give identical art.",
         pattern="^[0-9a-f]{16,64}$",
+    )
+    unavailable: list[UnavailableMetric] = Field(
+        ...,
+        description="Metrics whose cards show 'unavailable'; the rest of the report still renders.",
     )

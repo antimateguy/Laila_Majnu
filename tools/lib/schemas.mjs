@@ -25,7 +25,7 @@ export function loadSchemas() {
  * errors instead of silently accepting everything.
  */
 export function createAjv() {
-  const ajv = new Ajv2020({ strict: true, allErrors: true, strictRequired: false });
+  const ajv = new Ajv2020({ strict: true, allErrors: true, strictRequired: false, allowUnionTypes: true });
   addFormats(ajv);
   for (const { schema } of loadSchemas()) ajv.addSchema(schema);
   return ajv;

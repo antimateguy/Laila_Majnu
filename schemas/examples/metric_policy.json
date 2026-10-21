@@ -18,7 +18,18 @@
       "STEADY": 0.5,
       "RISING": 1
     },
-    "friction_max_points": 15
+    "friction_max_points": 15,
+    "warmth": {
+      "affection_cap_per_100_msgs": 2,
+      "we_talk_cap_per_1000_words": 5
+    },
+    "friction": {
+      "conflict_cap_per_100_msgs": 2,
+      "ghosts_cap_per_10_weeks": 2,
+      "breadcrumbs_cap": 3,
+      "pd_episodes_cap_per_10_weeks": 5
+    },
+    "min_available_weight": 0.6
   },
   "confidence": {
     "bootstrap_resamples": 200,

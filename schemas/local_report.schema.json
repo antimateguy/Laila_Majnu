@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://laila-majnu.invalid/schemas/local_report.schema.json",
   "title": "LocalReport",
-  "description": "What lm_analyze returns. It never leaves the device and is never sent anywhere. Source: docs/LLD.md, 'LocalReport'; the types the LLD leaves undefined are drafts (ADR-0008).",
+  "description": "What lm_analyze returns. It never leaves the device and is never sent anywhere. Source: docs/LLD.md, 'LocalReport'; the types the LLD leaves undefined are defined in ADR-0008.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -21,7 +21,8 @@
     "lsm_categories",
     "milestones",
     "score_inputs",
-    "fingerprint_seed"
+    "fingerprint_seed",
+    "unavailable"
   ],
   "properties": {
     "schema_version": {
@@ -193,13 +194,24 @@
       ],
       "properties": {
         "id": {
+          "description": "Tier_00 for trailer mode or when either score is null.",
           "$ref": "common.schema.json#/$defs/tier_id"
         },
         "majnu_meter": {
-          "$ref": "common.schema.json#/$defs/score"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "chemistry_score": {
-          "$ref": "common.schema.json#/$defs/score"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "plot_twist": {
           "description": "Majnu Meter below 35: they chase you.",
@@ -401,12 +413,19 @@
       "description": "Hex hash of the metric vector; identical chats give identical art.",
       "type": "string",
       "pattern": "^[0-9a-f]{16,64}$"
+    },
+    "unavailable": {
+      "description": "Metrics whose cards show 'unavailable'; the rest of the report still renders.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unavailable_metric"
+      }
     }
   },
   "$defs": {
     "metric_id": {
       "title": "MetricId",
-      "description": "The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008, draft).",
+      "description": "The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008).",
       "enum": [
         "initiation_share",
         "effort_share",
@@ -506,7 +525,7 @@
     },
     "score_inputs": {
       "title": "ScoreInputs",
-      "description": "What the what-if sliders perturb; lm_score reruns only ScorePolicy on it (ADR-0008, draft).",
+      "description": "What the what-if sliders perturb (reply speed, initiation share, SELF turn-toward); lm_score reruns only ScorePolicy on it (ADR-0008).",
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -519,7 +538,7 @@
           "type": "boolean"
         },
         "majnu": {
-          "description": "Raw terms of the Majnu Meter; ScorePolicy derives the latency gap from the two medians.",
+          "description": "Raw terms of the Majnu Meter. Each share is SELF's share of a both-sides count (0.5 when the count is 0); ScorePolicy derives the latency gap from the two medians.",
           "type": "object",
           "additionalProperties": false,
           "required": [
@@ -532,27 +551,55 @@
           ],
           "properties": {
             "self_initiation_share": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "self_msg_share": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "self_double_text_share": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "latency_p50_self_s": {
-              "$ref": "common.schema.json#/$defs/seconds"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
             },
             "latency_p50_other_s": {
-              "$ref": "common.schema.json#/$defs/seconds"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0
             },
             "self_pd_share": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             }
           }
         },
         "chemistry": {
-          "description": "Components of the Chemistry Score before weighting.",
+          "description": "Chemistry components in 0-1 before weighting; warmth and friction are already folded with the policy caps. Null components are dropped and the remaining weights renormalised.",
           "type": "object",
           "additionalProperties": false,
           "required": [
@@ -567,31 +614,95 @@
           ],
           "properties": {
             "turn_toward_self": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "turn_toward_other": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "lsm": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "reciprocity": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "warmth": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "rhythm_overlap": {
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             },
             "momentum": {
-              "$ref": "common.schema.json#/$defs/momentum"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "common.schema.json#/$defs/momentum"
+                }
+              ]
             },
             "friction": {
               "description": "Fraction of the maximum friction penalty (0-1).",
-              "$ref": "common.schema.json#/$defs/unit"
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 1
             }
           }
+        }
+      }
+    },
+    "unavailable_metric": {
+      "title": "UnavailableMetric",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric",
+        "code"
+      ],
+      "properties": {
+        "metric": {
+          "$ref": "#/$defs/metric_id"
+        },
+        "code": {
+          "description": "INSUFFICIENT_DATA: nothing to measure (e.g. no replies). NOT_SUPPORTED_BY_PLATFORM: the export lacks the signal. COMPUTE_ERROR: the metric failed.",
+          "enum": [
+            "INSUFFICIENT_DATA",
+            "NOT_SUPPORTED_BY_PLATFORM",
+            "COMPUTE_ERROR"
+          ]
         }
       }
     }

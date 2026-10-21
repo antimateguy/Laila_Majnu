@@ -30,6 +30,37 @@ export type TierId =
  * @maxItems 6
  */
 export type WeeklyRow = [number, number, number, number, number, number];
+/**
+ * Tier_00 is trailer mode; Tier_01..Tier_09 are the 3x3 grid in row-major order.
+ */
+export type TierId1 =
+  "Tier_00" | "Tier_01" | "Tier_02" | "Tier_03" | "Tier_04" | "Tier_05" | "Tier_06" | "Tier_07" | "Tier_08" | "Tier_09";
+/**
+ * The 22 metrics of the LLD Metric catalogue, in catalogue order (ADR-0008).
+ */
+export type MetricId =
+  | "initiation_share"
+  | "effort_share"
+  | "double_text"
+  | "reply_speed"
+  | "pursuer_distancer"
+  | "turn_toward"
+  | "followup_questions"
+  | "dry_reply"
+  | "lsm"
+  | "length_mirroring"
+  | "emoji_mirroring"
+  | "rhythm_overlap"
+  | "longest_rally"
+  | "affection"
+  | "we_talk"
+  | "shared_laughter"
+  | "night_owl"
+  | "conflict"
+  | "ghosts"
+  | "breadcrumbs"
+  | "momentum"
+  | "fast_start_fade";
 
 export interface Contracts {
   "abridged_payload.schema.json"?: AbridgedPayload;
@@ -95,7 +126,7 @@ export interface Capabilities {
   explicit_timezone: boolean;
 }
 /**
- * Shared by AbridgedPayload, LocalReport and DonationRecord.
+ * Shared by AbridgedPayload, LocalReport and DonationRecord. A null value means the metric could not be computed (fail-soft, ADR-0008); it never means zero.
  */
 export interface MetricsBlock {
   self: SideStats;
@@ -106,67 +137,76 @@ export interface MetricsBlock {
  * One per participant, oriented SELF / OTHER.
  */
 export interface SideStats {
-  latency_p50_s: number;
-  latency_p90_s: number;
-  initiation_share: number;
-  msg_share: number;
-  char_share: number;
-  double_text_rate: number;
+  latency_p50_s: number | null;
+  latency_p90_s: number | null;
+  initiation_share: number | null;
+  msg_share: number | null;
+  char_share: number | null;
+  double_text_rate: number | null;
   /**
    * Share of SELF/OTHER double texts sent < 30 min after their own last message.
    */
-  double_text_fast_share: number;
+  double_text_fast_share: number | null;
   /**
    * Share of double texts sent > 4 h after their own last message. Added by ADR-0002.
    */
-  double_text_slow_share: number;
-  turn_toward_rate: number;
-  followup_q_rate: number;
-  dry_reply_rate: number;
+  double_text_slow_share: number | null;
+  turn_toward_rate: number | null;
+  followup_q_rate: number | null;
+  dry_reply_rate: number | null;
   /**
-   * Per 100 messages (affection, conflict) or per 1,000 words (we-talk).
+   * Affection tokens per 100 messages.
    */
-  affection_rate: number;
+  affection_rate: number | null;
   /**
-   * Per 100 messages (affection, conflict) or per 1,000 words (we-talk).
+   * We-talk words per 1,000 words.
    */
-  we_talk_rate: number;
+  we_talk_rate: number | null;
   /**
-   * Per 100 messages (affection, conflict) or per 1,000 words (we-talk).
+   * Apology and conflict tokens per 100 messages.
    */
-  conflict_rate: number;
-  night_share: number;
-  ghost_events: number;
-  ghosts_broken: number;
-  pd_episodes_started: number;
+  conflict_rate: number | null;
+  night_share: number | null;
+  ghost_events: number | null;
+  ghosts_broken: number | null;
+  pd_episodes_started: number | null;
 }
 export interface PairStats {
-  majnu_meter: number;
-  chemistry_score: number;
-  lsm: number;
+  /**
+   * Null when under 60% of the score's weight is available (ADR-0008).
+   */
+  majnu_meter: number | null;
+  /**
+   * Null when under 60% of the score's weight is available (ADR-0008).
+   */
+  chemistry_score: number | null;
+  lsm: number | null;
   /**
    * Spearman correlation of consecutive turn lengths.
    */
-  length_mirroring: number;
-  emoji_mirroring: number;
-  rhythm_overlap: number;
-  shared_laughter: number;
-  reciprocity: number;
-  longest_rally: number;
-  breadcrumb_events: number;
+  length_mirroring: number | null;
+  emoji_mirroring: number | null;
+  rhythm_overlap: number | null;
+  shared_laughter: number | null;
   /**
-   * Null when neither side has used an affection token.
+   * Effort balance: 1 - |2 x SELF's character share - 1| (ADR-0008).
+   */
+  reciprocity: number | null;
+  longest_rally: number | null;
+  breadcrumb_events: number | null;
+  /**
+   * Null when neither side has used an affection token, or when the affection metric is unavailable (LocalReport.unavailable tells the two apart).
    */
   first_affection: null | {
     side: Side;
     week: number;
   };
-  momentum: Momentum;
+  momentum: null | Momentum;
   /**
    * (affection + volume, last 4 weeks) / (same, first 4 weeks).
    */
-  fast_start_fade: number;
-  latency_trend_s_per_week: number;
+  fast_start_fade: number | null;
+  latency_trend_s_per_week: number | null;
 }
 export interface Milestone {
   id: string;
@@ -217,8 +257,8 @@ export interface AnalysisResult {
   degraded_reason: null | ("rate_limited" | "provider_error" | "schema_invalid");
   tier: {
     id: TierId;
-    majnu_meter: number;
-    chemistry_score: number;
+    majnu_meter: number | null;
+    chemistry_score: number | null;
     /**
      * Date-stamped version of a policy or content file.
      */
@@ -367,7 +407,7 @@ export interface DonationRecord {
   };
 }
 /**
- * What lm_analyze returns. It never leaves the device and is never sent anywhere. Source: docs/LLD.md, 'LocalReport'; the types the LLD leaves undefined are drafts (ADR-0008).
+ * What lm_analyze returns. It never leaves the device and is never sent anywhere. Source: docs/LLD.md, 'LocalReport'; the types the LLD leaves undefined are defined in ADR-0008.
  */
 export interface LocalReport {
   /**
@@ -416,9 +456,9 @@ export interface LocalReport {
     latency_p50_other: ConfidenceEntry;
   };
   tier: {
-    id: TierId;
-    majnu_meter: number;
-    chemistry_score: number;
+    id: TierId1;
+    majnu_meter: number | null;
+    chemistry_score: number | null;
     /**
      * Majnu Meter below 35: they chase you.
      */
@@ -503,6 +543,10 @@ export interface LocalReport {
    * Hex hash of the metric vector; identical chats give identical art.
    */
   fingerprint_seed: string;
+  /**
+   * Metrics whose cards show 'unavailable'; the rest of the report still renders.
+   */
+  unavailable: UnavailableMetric[];
 }
 export interface ConfidenceEntry {
   /**
@@ -530,37 +574,44 @@ export interface WeeklyPoint {
   affection: number;
 }
 /**
- * What the what-if sliders perturb; lm_score reruns only ScorePolicy on it (ADR-0008, draft).
+ * What the what-if sliders perturb (reply speed, initiation share, SELF turn-toward); lm_score reruns only ScorePolicy on it (ADR-0008).
  */
 export interface ScoreInputs {
   trailer_mode: boolean;
   /**
-   * Raw terms of the Majnu Meter; ScorePolicy derives the latency gap from the two medians.
+   * Raw terms of the Majnu Meter. Each share is SELF's share of a both-sides count (0.5 when the count is 0); ScorePolicy derives the latency gap from the two medians.
    */
   majnu: {
-    self_initiation_share: number;
-    self_msg_share: number;
-    self_double_text_share: number;
-    latency_p50_self_s: number;
-    latency_p50_other_s: number;
-    self_pd_share: number;
+    self_initiation_share: number | null;
+    self_msg_share: number | null;
+    self_double_text_share: number | null;
+    latency_p50_self_s: number | null;
+    latency_p50_other_s: number | null;
+    self_pd_share: number | null;
   };
   /**
-   * Components of the Chemistry Score before weighting.
+   * Chemistry components in 0-1 before weighting; warmth and friction are already folded with the policy caps. Null components are dropped and the remaining weights renormalised.
    */
   chemistry: {
-    turn_toward_self: number;
-    turn_toward_other: number;
-    lsm: number;
-    reciprocity: number;
-    warmth: number;
-    rhythm_overlap: number;
-    momentum: Momentum;
+    turn_toward_self: number | null;
+    turn_toward_other: number | null;
+    lsm: number | null;
+    reciprocity: number | null;
+    warmth: number | null;
+    rhythm_overlap: number | null;
+    momentum: null | Momentum;
     /**
      * Fraction of the maximum friction penalty (0-1).
      */
-    friction: number;
+    friction: number | null;
   };
+}
+export interface UnavailableMetric {
+  metric: MetricId;
+  /**
+   * INSUFFICIENT_DATA: nothing to measure (e.g. no replies). NOT_SUPPORTED_BY_PLATFORM: the export lacks the signal. COMPUTE_ERROR: the metric failed.
+   */
+  code: "INSUFFICIENT_DATA" | "NOT_SUPPORTED_BY_PLATFORM" | "COMPUTE_ERROR";
 }
 /**
  * engine/assets/metric_policy.json: the versioned weights behind both headline scores and the confidence levels. The tier thresholds in engine/assets/tier_policy.json validate against $defs/tier_policy. Weights are v1 guesses, recalibrated later against donated outcomes. Source: docs/LLD.md, 'Headline scores' and 'Tier grid'.
@@ -595,6 +646,26 @@ export interface MetricPolicy {
       RISING: number;
     };
     friction_max_points: number;
+    /**
+     * Warmth = mean of min(1, lower side's affection / affection_cap), min(1, lower side's we-talk / we_talk_cap) and shared laughter.
+     */
+    warmth: {
+      affection_cap_per_100_msgs: number;
+      we_talk_cap_per_1000_words: number;
+    };
+    /**
+     * Friction = mean of the four capped terms below; the penalty is friction_max_points x friction.
+     */
+    friction: {
+      conflict_cap_per_100_msgs: number;
+      ghosts_cap_per_10_weeks: number;
+      breadcrumbs_cap: number;
+      pd_episodes_cap_per_10_weeks: number;
+    };
+    /**
+     * A headline score is null when less than this share of its weight is available.
+     */
+    min_available_weight: number;
   };
   confidence: {
     bootstrap_resamples: number;
@@ -605,7 +676,7 @@ export interface MetricPolicy {
      */
     low_below_n: number;
     /**
-     * At least this many relevant events => high confidence; in between is medium.
+     * At least this many relevant events => high confidence; from low_below_n up to this is medium.
      */
     high_min_n: number;
   };

@@ -55,10 +55,20 @@
           "$ref": "common.schema.json#/$defs/tier_id"
         },
         "majnu_meter": {
-          "$ref": "common.schema.json#/$defs/score"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "chemistry_score": {
-          "$ref": "common.schema.json#/$defs/score"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "policy_version": {
           "$ref": "common.schema.json#/$defs/policy_version"

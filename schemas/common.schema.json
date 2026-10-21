@@ -87,12 +87,6 @@
       "type": "number",
       "minimum": 0
     },
-    "per_hundred": {
-      "description": "Per 100 messages (affection, conflict) or per 1,000 words (we-talk).",
-      "type": "number",
-      "minimum": 0,
-      "maximum": 100
-    },
     "capabilities": {
       "title": "Capabilities",
       "description": "What the source format can measure (ParserCapabilities).",
