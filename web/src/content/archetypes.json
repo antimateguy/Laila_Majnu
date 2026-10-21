@@ -1,0 +1,365 @@
+{
+  "version": "2026-10-21",
+  "entries": [
+    {
+      "tier_id": "Tier_00",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier00_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_00",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier00_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_01",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier01_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_01",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier01_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_02",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier02_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_02",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier02_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_03",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier03_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_03",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier03_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_04",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier04_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_04",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier04_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_05",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier05_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_05",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier05_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_06",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier06_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_06",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier06_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_07",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier07_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_07",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier07_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_08",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier08_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_08",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier08_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_09",
+      "persona": "MAJNU",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier09_majnu_v1",
+      "status": "draft",
+      "approved_by": null
+    },
+    {
+      "tier_id": "Tier_09",
+      "persona": "LAILA",
+      "title": "TBD",
+      "inspired_by": "TBD",
+      "tagline": {
+        "en": "TBD",
+        "hinglish": "TBD"
+      },
+      "palette": [
+        "#1B1035",
+        "#F2C14E",
+        "#E4572E"
+      ],
+      "art_key": "tier09_laila_v1",
+      "status": "draft",
+      "approved_by": null
+    }
+  ]
+}
