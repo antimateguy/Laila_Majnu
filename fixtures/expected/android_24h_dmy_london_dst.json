@@ -1,0 +1,2817 @@
+{
+ "id": "android_24h_dmy_london_dst",
+ "platform": "whatsapp",
+ "dialect": "android",
+ "files": [
+  "whatsapp/android/android_24h_dmy_london_dst/_chat.txt"
+ ],
+ "context": {
+  "date_order": "DMY",
+  "tz": "Europe/London",
+  "transitions": [
+   {
+    "from_local_min": 60,
+    "offset_min": 60
+   },
+   {
+    "from_local_min": 29881500,
+    "offset_min": 0
+   }
+  ]
+ },
+ "expect_code": "Ok",
+ "participants": [
+  "Dev Malhotra",
+  "Tara Joshi"
+ ],
+ "self_id": 1,
+ "message_count": 398,
+ "messages": [
+  {
+   "ts_utc_ms": 1790843640000,
+   "sender": null,
+   "kind": "System",
+   "text": "Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790843640000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790843700000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790844300000,
+   "sender": 0,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886360000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886600000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "theek tha yaar",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886600000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886660000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886720000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886780000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886780000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790886900000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the one with the long trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790887500000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hahaha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790887560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790887980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj traffic bahut tha 😅",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790887980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790888040000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790888100000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790980320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yes, ate already",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790980320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "us two against the world",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790991360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di ✨",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790991360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "miss you 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790991360000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790991420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1790991480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791150540000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home ✨",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791150600000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791150720000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "us two against the world",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151620000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151620000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hum log kab milenge?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151620000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151680000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "you're the best ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "it's raining here ✨",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791151740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791152340000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791232560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791232800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791233400000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru 🔥",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791233400000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791233400000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "haha stop",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234000000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234540000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234540000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234540000,
+   "sender": 0,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234540000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kaunsi movie dekhein?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791234660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791235260000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791287640000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791287700000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791287760000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "k",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791287820000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791319920000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791319980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "whatever",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791320040000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "exam kaisa gaya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791320040000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the traffic today was insane\nit's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791320100000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791358380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "maaf karo",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791358500000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hahaha pagal",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359100000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "😂😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359700000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "haha stop",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359700000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "😂😂\nmummy ne aaj rajma banaya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359820000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359820000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "love talking to you 👍\nmy manager scheduled another meeting 🙈",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359880000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359880000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "weekend pe free ho?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791359880000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "btw code word lmcanaryrmsammkuuh yaad rakhna",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791500340000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791500340000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it went okay I think 👍",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791500340000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791500940000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maaf karo",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791501060000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791501060000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "exam kaisa gaya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791501060000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791509220000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the one with the long trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791509280000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yes, ate already",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791670740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791670740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791670740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791670740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "whatever",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791705780000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the one with the long trailer 🙈",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791706020000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "bahut yaad aa rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791706080000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "why didn't you reply?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791706980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791706980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791707580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "sorry, my bad",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791707580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the one with the long trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791751740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yes, ate already 😅",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791751740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791751740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791805320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791805320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791805380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791805620000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791805860000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "weekend pe free ho?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791835860000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791836460000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791836460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791836580000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791836880000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791836940000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "dekhte hain, bataunga",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1791837000000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791837240000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791837840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791931980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "theek tha yaar",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791932580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791932580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791932580000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791932580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791977760000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nahi abhi tak nahi",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791977760000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791977760000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791977820000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels 😅",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791978060000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791978120000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hahaha pagal",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791978180000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791978420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it went okay I think",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979560000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979620000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hum dono chalenge pakka",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979680000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "why didn't you reply?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979920000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1791979920000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "love talking to you 😘\nthe traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792102140000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "weekend pe free ho?",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1792102740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792102980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792102980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792103040000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792190820000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191420000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "ghar pahunch gaye?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ghar pahunch gaye?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191780000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan abhi pahuncha ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792191840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "bahut yaad aa rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792192440000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792192440000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792192500000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "whatever",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792193100000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it went okay I think\nthe canteen chai is getting worse 👍",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792193100000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "what are you doing today?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792193100000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792193640000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792194240000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "reply kyun nahi kiya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792194360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792194600000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792194600000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "theek",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792195200000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "let's plan our trip\nyahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792260600000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hasna band karo",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792261200000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792261260000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792261560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yes, ate already",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792261800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792262400000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kaunsi movie dekhein?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792262460000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you\nlistening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792262460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792262520000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "you're the best ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792262580000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "are you free this weekend?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792263180000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "khana khaya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nahi abhi tak nahi 🔥",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272420000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "how's your mom now?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272540000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272600000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792272600000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414260000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414260000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maaf karo",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414920000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414920000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414920000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "mummy ne aaj rajma banaya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792414920000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "mummy ne aaj rajma banaya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480620000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "😂😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "okay\nI finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792480980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792481040000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792481040000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj traffic bahut tha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792606560000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792606560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792606620000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "dekhte hain, bataunga",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792606860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792607100000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792607100000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "why didn't you reply?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792608300000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "bahut yaad aa rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792608900000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "miss you ✨",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609140000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609380000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609440000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal Rohan ki party mein aa rahe ho?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609440000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609920000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609920000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "dekhte hain, bataunga",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792609980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it went okay I think",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792610220000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792610340000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667460000,
+   "sender": 0,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667520000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yes, ate already",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667580000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "dekhte hain, bataunga",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667580000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667880000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan kha liya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792667940000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kuch nahi bas reels dekh raha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792701240000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "aaj traffic bahut tha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792701240000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hahaha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792701240000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792701240000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hahaha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792701300000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792757760000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "😂😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792758000000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hum log kab milenge?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792758000000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792786560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792786800000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kuch nahi bas reels dekh raha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792786800000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787040000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "sending you a hug 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787100000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai ❤️",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1792787160000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787400000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "sending you a hug 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787760000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "fine.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792787820000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792788420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "miss kar raha hoon\nlistening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792788420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792788480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "maybe, let me check 🔥",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792788480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "nahi abhi tak nahi",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792788480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896180000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896420000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "maybe, let me check",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1792896420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "sending you a hug 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1792896540000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "😂😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793016840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793016900000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "haha stop",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793017140000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088780000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "are you free this weekend?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088900000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088900000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj kya plan hai?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088960000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793088960000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195220000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "acha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195460000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195520000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195520000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru\nyahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195520000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the one with the long trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793195520000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793226360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "sorry, my bad",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793226360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793226360000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793226420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793226660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227020000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227080000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "love talking to you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227200000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227200000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227200000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793227200000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "you're the best ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793264700000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan kha liya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793264760000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the one with the long trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793325420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "mummy ne aaj rajma banaya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793325480000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793326080000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793388180000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793388180000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793388180000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime\nyahan baarish ho rahi hai 👍",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793388300000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "haan abhi pahuncha 😅",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "dekhte hain, bataunga",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru 👍\nit's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "yes, ate already 🔥",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488860000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nahi abhi tak nahi",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793488860000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793555640000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793555640000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels\nit's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793555700000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "sorry, my bad",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793555700000,
+   "sender": 1,
+   "kind": "Deleted",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793555820000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "miss you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793556420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793556480000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "reply kyun nahi kiya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793623620000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "nothing much, scrolling reels",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793623620000,
+   "sender": 0,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793623620000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793623740000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "why didn't you reply?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793799000000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hahaha pagal",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793799000000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793799060000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj kya plan hai?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793799660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "are you free this weekend?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793799780000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793800380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793800380000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "🤣",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793800680000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793800740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haha stop",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793800980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane 😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "fine.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866500000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866500000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "let's plan our trip",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793866560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793985720000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793985840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793986440000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793986440000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "haan abhi pahuncha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793986680000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "mera naya number 92452 95557 hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793986740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793987340000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793987340000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking 😂",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793987940000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988240000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you eat?\nit's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988360000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yahan baarish ho rahi hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988360000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "let's plan our trip",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "love talking to you",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988720000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988780000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793988900000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "fine.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1793989500000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "let's plan our trip",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794350280000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "exam kaisa gaya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794350280000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "how was the exam?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794350280000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home 🥺",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426660000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "mail kar do zoya.test@example.com pe",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426660000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426660000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "sending you a hug 😘",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426960000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "it's raining here 👍",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794426960000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hasna band karo",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794439740000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794439800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794439800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haha stop",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794439860000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "us two against the world",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794440460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794523680000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hahaha pagal",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794523680000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "yes, ate already",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794523980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "haan kha liya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794524580000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the canteen chai is getting worse",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794524700000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "you're the best ❤️ ❤️",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794524940000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "what are you doing today?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794609000000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj kya plan hai?\nthe traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794609600000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hamara plan fix hai",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794659220000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "mummy ne aaj rajma banaya",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794659220000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794659820000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "fine.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794659820000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794660720000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794660780000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794730980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ye dekho https://example.com/trailer",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794730980000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "what are you doing today?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794745320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794745560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "just reached home",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794745800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "which movie should we watch?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794745800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "whatever",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794746040000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "my manager scheduled another meeting",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794746280000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "khana khaya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794871800000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794871800000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794872400000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "boss ne phir meeting rakh di",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794872400000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "it's raining here 😅",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794876300000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hmm",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794876420000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "chai peene ja raha hoon",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794951000000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hahaha",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794951240000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "aaj kya plan hai?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794951840000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794951840000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "reply kyun nahi kiya?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1794952080000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you reach home?",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795046220000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "okay",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795046460000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "she is better now, thanks for asking",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795046520000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "us two against the world",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795046520000,
+   "sender": 1,
+   "kind": "Deleted",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795046520000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "ok",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795047120000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "fine.",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795047180000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "theek",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795047420000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "whatever",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795050180000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1795050300000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "hum dono chalenge pakka",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795050360000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "us two against the world",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795050960000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "listening to old songs tonight",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795051560000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "lol",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795051560000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "we should go there sometime",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1795117320000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "it's raining here 🔥",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795117320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": true
+  },
+  {
+   "ts_utc_ms": 1795117320000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "kal se gym shuru",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795117380000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795117380000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "hasna band karo\nlistening to old songs tonight 🥺",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795117980000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "let's plan our trip",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795118220000,
+   "sender": 0,
+   "kind": "Text",
+   "text": "I finally finished that book",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795118220000,
+   "sender": 1,
+   "kind": "Media",
+   "text": "",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795118220000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "the traffic today was insane",
+   "edited": false
+  },
+  {
+   "ts_utc_ms": 1795118820000,
+   "sender": 1,
+   "kind": "Text",
+   "text": "did you eat?",
+   "edited": false
+  }
+ ]
+}
