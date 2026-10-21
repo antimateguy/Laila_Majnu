@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.1",
+  "request_id": "9b2f4c1e-7a35-4e0b-9d61-2f3c8a7e5b10",
+  "status": "degraded",
+  "degraded_reason": "rate_limited",
+  "tier": {
+    "id": "Tier_04",
+    "majnu_meter": 71,
+    "chemistry_score": 58,
+    "policy_version": "2026-10-21"
+  },
+  "narrative": null,
+  "provider": null
+}

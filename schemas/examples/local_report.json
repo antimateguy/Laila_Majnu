@@ -1,0 +1,688 @@
+{
+  "schema_version": "1.1",
+  "persona": "MAJNU",
+  "span": {
+    "first_date": "2026-03-02",
+    "last_date": "2026-10-05",
+    "weeks": 31,
+    "sessions": 148,
+    "messages": 9412,
+    "trailer_mode": false
+  },
+  "metrics": {
+    "self": {
+      "latency_p50_s": 140,
+      "latency_p90_s": 2100,
+      "initiation_share": 0.71,
+      "msg_share": 0.63,
+      "char_share": 0.68,
+      "double_text_rate": 0.18,
+      "double_text_fast_share": 0.7,
+      "double_text_slow_share": 0.1,
+      "turn_toward_rate": 0.88,
+      "followup_q_rate": 0.21,
+      "dry_reply_rate": 0.05,
+      "affection_rate": 3.1,
+      "we_talk_rate": 4.2,
+      "conflict_rate": 0.6,
+      "night_share": 0.22,
+      "ghost_events": 1,
+      "ghosts_broken": 4,
+      "pd_episodes_started": 6
+    },
+    "other": {
+      "latency_p50_s": 960,
+      "latency_p90_s": 14400,
+      "initiation_share": 0.29,
+      "msg_share": 0.37,
+      "char_share": 0.32,
+      "double_text_rate": 0.04,
+      "double_text_fast_share": 0.2,
+      "double_text_slow_share": 0.5,
+      "turn_toward_rate": 0.61,
+      "followup_q_rate": 0.07,
+      "dry_reply_rate": 0.24,
+      "affection_rate": 1.2,
+      "we_talk_rate": 1.9,
+      "conflict_rate": 0.3,
+      "night_share": 0.18,
+      "ghost_events": 4,
+      "ghosts_broken": 1,
+      "pd_episodes_started": 1
+    },
+    "pair": {
+      "majnu_meter": 71,
+      "chemistry_score": 58,
+      "lsm": 0.81,
+      "length_mirroring": 0.34,
+      "emoji_mirroring": 0.27,
+      "rhythm_overlap": 0.66,
+      "shared_laughter": 0.38,
+      "reciprocity": 0.62,
+      "longest_rally": 42,
+      "breadcrumb_events": 2,
+      "first_affection": {
+        "side": "SELF",
+        "week": 6
+      },
+      "momentum": "FADING",
+      "fast_start_fade": 0.45,
+      "latency_trend_s_per_week": 41.5
+    }
+  },
+  "confidence": {
+    "initiation_share": {
+      "n": 148,
+      "level": "high"
+    },
+    "effort_share": {
+      "n": 148,
+      "level": "high"
+    },
+    "double_text": {
+      "n": 148,
+      "level": "high"
+    },
+    "reply_speed": {
+      "n": 148,
+      "level": "high"
+    },
+    "pursuer_distancer": {
+      "n": 148,
+      "level": "high"
+    },
+    "turn_toward": {
+      "n": 148,
+      "level": "high"
+    },
+    "followup_questions": {
+      "n": 148,
+      "level": "high"
+    },
+    "dry_reply": {
+      "n": 148,
+      "level": "high"
+    },
+    "lsm": {
+      "n": 148,
+      "level": "high"
+    },
+    "length_mirroring": {
+      "n": 148,
+      "level": "high"
+    },
+    "emoji_mirroring": {
+      "n": 148,
+      "level": "high"
+    },
+    "rhythm_overlap": {
+      "n": 148,
+      "level": "high"
+    },
+    "longest_rally": {
+      "n": 148,
+      "level": "high"
+    },
+    "affection": {
+      "n": 148,
+      "level": "high"
+    },
+    "we_talk": {
+      "n": 148,
+      "level": "high"
+    },
+    "shared_laughter": {
+      "n": 148,
+      "level": "high"
+    },
+    "night_owl": {
+      "n": 148,
+      "level": "high"
+    },
+    "conflict": {
+      "n": 148,
+      "level": "high"
+    },
+    "ghosts": {
+      "n": 148,
+      "level": "high"
+    },
+    "breadcrumbs": {
+      "n": 5,
+      "level": "low"
+    },
+    "momentum": {
+      "n": 148,
+      "level": "high"
+    },
+    "fast_start_fade": {
+      "n": 148,
+      "level": "high"
+    },
+    "majnu_meter": {
+      "n": 148,
+      "level": "high",
+      "lo": 66,
+      "hi": 76
+    },
+    "chemistry_score": {
+      "n": 148,
+      "level": "high",
+      "lo": 52,
+      "hi": 63
+    },
+    "latency_p50_self": {
+      "n": 2210,
+      "level": "high",
+      "lo": 121,
+      "hi": 166
+    },
+    "latency_p50_other": {
+      "n": 1650,
+      "level": "high",
+      "lo": 840,
+      "hi": 1105
+    }
+  },
+  "tier": {
+    "id": "Tier_04",
+    "majnu_meter": 71,
+    "chemistry_score": 58,
+    "plot_twist": false
+  },
+  "weekly": [
+    {
+      "week": 0,
+      "msgs": 52,
+      "lat_self_p50": 120,
+      "lat_other_p50": 600,
+      "init_share": 0.7,
+      "reciprocity": 0.66,
+      "lsm": 0.84,
+      "affection": 0.8
+    }
+  ],
+  "monthly_initiation": [
+    {
+      "month": "2026-03",
+      "self": 14,
+      "other": 6
+    }
+  ],
+  "latency_hist": {
+    "self": [
+      410,
+      820,
+      560,
+      240,
+      120,
+      60
+    ],
+    "other": [
+      90,
+      260,
+      420,
+      380,
+      300,
+      200
+    ]
+  },
+  "heatmap": {
+    "self": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "other": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "ghosts": [
+    {
+      "week": 14,
+      "days": 3.5,
+      "broken_by": "SELF"
+    }
+  ],
+  "top_emojis": {
+    "self": [
+      "😂",
+      "❤️",
+      "🥺"
+    ],
+    "other": [
+      "😂",
+      "👍"
+    ]
+  },
+  "lsm_categories": [
+    {
+      "name": "ppron",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "ipron",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "article",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "conj",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "prep",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "auxverb",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "adverb",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "negate",
+      "self": 0.1,
+      "other": 0.09
+    },
+    {
+      "name": "quant",
+      "self": 0.1,
+      "other": 0.09
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m1",
+      "type": "LATENCY_SHIFT",
+      "week": 9,
+      "z": -3.1,
+      "salience": 0.82,
+      "session": {
+        "duration_min": 94,
+        "msgs_self": 31,
+        "msgs_other": 12,
+        "initiator": "SELF",
+        "closer": "OTHER",
+        "late_night": true
+      },
+      "excerpts": [
+        {
+          "speaker": "SELF",
+          "dt_s": 0,
+          "text": "kal [NAME] ki party mein aa rahi ho?"
+        },
+        {
+          "speaker": "OTHER",
+          "dt_s": 5400,
+          "text": "dekhti hoon"
+        }
+      ]
+    }
+  ],
+  "score_inputs": {
+    "trailer_mode": false,
+    "majnu": {
+      "self_initiation_share": 0.71,
+      "self_msg_share": 0.63,
+      "self_double_text_share": 0.82,
+      "latency_p50_self_s": 140,
+      "latency_p50_other_s": 960,
+      "self_pd_share": 0.86
+    },
+    "chemistry": {
+      "turn_toward_self": 0.88,
+      "turn_toward_other": 0.61,
+      "lsm": 0.81,
+      "reciprocity": 0.62,
+      "warmth": 0.5,
+      "rhythm_overlap": 0.66,
+      "momentum": "FADING",
+      "friction": 0.2
+    }
+  },
+  "fingerprint_seed": "3f9a1c0e7b2d4a68"
+}

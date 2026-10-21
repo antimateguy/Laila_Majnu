@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/donation_record.schema.json",
+  "title": "DonationRecord",
+  "description": "Opt-in, text-free research record (client -> POST /v1/donations). No names, dates, text or request_id; the server stores only the month. Source: docs/LLD.md, 'DonationRecord'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "consent",
+    "role",
+    "platform",
+    "metrics",
+    "weekly",
+    "milestones",
+    "labels"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text_version",
+        "month",
+        "scope",
+        "excerpts_included"
+      ],
+      "properties": {
+        "text_version": {
+          "$ref": "common.schema.json#/$defs/policy_version"
+        },
+        "month": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])$"
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "metrics",
+              "weekly_series",
+              "milestone_features"
+            ]
+          }
+        },
+        "excerpts_included": {
+          "description": "Donations never carry text.",
+          "const": false
+        }
+      }
+    },
+    "role": {
+      "$ref": "common.schema.json#/$defs/persona"
+    },
+    "platform": {
+      "$ref": "common.schema.json#/$defs/platform"
+    },
+    "pairing": {
+      "description": "Optional, self-reported; never an input to any score.",
+      "enum": [
+        "M_F",
+        "F_M",
+        "SAME",
+        "UNDISCLOSED"
+      ],
+      "default": "UNDISCLOSED"
+    },
+    "metrics": {
+      "$ref": "abridged_payload.schema.json#/$defs/metrics_block"
+    },
+    "weekly": {
+      "description": "Rows of [msgs, latency_self_p50_s, latency_other_p50_s, initiation_share, reciprocity, affection], at most 104 weeks.",
+      "type": "array",
+      "maxItems": 104,
+      "items": {
+        "$ref": "#/$defs/weekly_row"
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "week",
+          "z",
+          "salience"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "abridged_payload.schema.json#/$defs/milestone_type"
+          },
+          "week": {
+            "$ref": "common.schema.json#/$defs/count"
+          },
+          "z": {
+            "type": "number"
+          },
+          "salience": {
+            "$ref": "common.schema.json#/$defs/unit"
+          }
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier",
+        "self_reported_outcome"
+      ],
+      "properties": {
+        "tier": {
+          "$ref": "common.schema.json#/$defs/tier_id"
+        },
+        "self_reported_outcome": {
+          "enum": [
+            "TOGETHER",
+            "FRIENDS",
+            "NO_CONTACT",
+            "UNKNOWN"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "weekly_row": {
+      "title": "WeeklyRow",
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "prefixItems": [
+        {
+          "$ref": "common.schema.json#/$defs/count"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/seconds"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        {
+          "$ref": "common.schema.json#/$defs/unit"
+        },
+        {
+          "type": "number",
+          "minimum": 0
+        }
+      ],
+      "items": false
+    }
+  }
+}

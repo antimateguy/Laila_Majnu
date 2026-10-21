@@ -1,0 +1,30 @@
+{
+  "version": "2026-10-21",
+  "chemistry": {
+    "weights": {
+      "turn_toward": 0.25,
+      "lsm": 0.2,
+      "reciprocity": 0.15,
+      "warmth": 0.15,
+      "rhythm_overlap": 0.1,
+      "momentum": 0.15
+    },
+    "lsm_rescale": {
+      "from": 0.5,
+      "to": 1.0
+    },
+    "momentum_values": {
+      "FADING": 0,
+      "STEADY": 0.5,
+      "RISING": 1
+    },
+    "friction_max_points": 15
+  },
+  "confidence": {
+    "bootstrap_resamples": 200,
+    "bootstrap_seed": 20261021,
+    "interval": 0.9,
+    "low_below_n": 30,
+    "high_min_n": 100
+  }
+}

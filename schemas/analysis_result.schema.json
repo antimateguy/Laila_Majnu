@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laila-majnu.invalid/schemas/analysis_result.schema.json",
+  "title": "AnalysisResult",
+  "description": "Server -> client reply to POST /v1/analyze. The tier is always present because it is a pure function of the metrics (server-side TierPolicy); the narrative is null when every provider failed. Source: docs/LLD.md, 'AnalysisResult'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "status",
+    "degraded_reason",
+    "tier",
+    "narrative",
+    "provider"
+  ],
+  "properties": {
+    "schema_version": {
+      "$ref": "common.schema.json#/$defs/schema_version"
+    },
+    "request_id": {
+      "$ref": "common.schema.json#/$defs/request_id"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "degraded"
+      ]
+    },
+    "degraded_reason": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "enum": [
+            "rate_limited",
+            "provider_error",
+            "schema_invalid"
+          ]
+        }
+      ]
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "majnu_meter",
+        "chemistry_score",
+        "policy_version"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/tier_id"
+        },
+        "majnu_meter": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "chemistry_score": {
+          "$ref": "common.schema.json#/$defs/score"
+        },
+        "policy_version": {
+          "$ref": "common.schema.json#/$defs/policy_version"
+        }
+      }
+    },
+    "narrative": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "narrative.schema.json"
+        }
+      ]
+    },
+    "provider": {
+      "description": "The provider that wrote the narrative. Null when degraded (ADR-0009).",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/provider"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "description": "complete => narrative and provider present, no degraded_reason.",
+      "if": {
+        "properties": {
+          "status": {
+            "const": "complete"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "degraded_reason": {
+            "type": "null"
+          },
+          "narrative": {
+            "type": "object"
+          },
+          "provider": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "description": "degraded => a reason, no narrative, no provider.",
+      "if": {
+        "properties": {
+          "status": {
+            "const": "degraded"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "degraded_reason": {
+            "type": "string"
+          },
+          "narrative": {
+            "type": "null"
+          },
+          "provider": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "provider": {
+      "title": "Provider",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "model",
+        "latency_ms",
+        "tokens_in",
+        "tokens_out"
+      ],
+      "properties": {
+        "name": {
+          "enum": [
+            "groq",
+            "workers_ai"
+          ]
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_in": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens_out": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}
