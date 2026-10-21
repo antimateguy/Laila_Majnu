@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Dark mode by default (LLD: Look and feel). */
+:root {
+  color-scheme: dark;
+  background-color: #0d0a1a;
+  color: #f5efe0;
+}
