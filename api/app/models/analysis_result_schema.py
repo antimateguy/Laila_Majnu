@@ -40,8 +40,8 @@ class Tier(BaseModel):
         description="Tier_00 is trailer mode; Tier_01..Tier_09 are the 3x3 grid in row-major order.",
         title="TierId",
     )
-    majnu_meter: int = Field(..., ge=0, le=100)
-    chemistry_score: int = Field(..., ge=0, le=100)
+    majnu_meter: int | None = Field(..., ge=0, le=100)
+    chemistry_score: int | None = Field(..., ge=0, le=100)
     policy_version: str = Field(
         ...,
         description="Date-stamped version of a policy or content file.",

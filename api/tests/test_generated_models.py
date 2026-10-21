@@ -56,6 +56,22 @@ def test_payload_forbids_extra_keys(path: tuple[str | int, ...]) -> None:
         AbridgedPayload.model_validate(doc)
 
 
+def test_payload_accepts_null_metrics_and_scores() -> None:
+    doc = example("abridged_payload")
+    doc["metrics"]["other"]["latency_p50_s"] = None
+    doc["metrics"]["pair"]["majnu_meter"] = None
+    payload = AbridgedPayload.model_validate(doc)
+    assert payload.metrics.other.latency_p50_s is None
+    assert payload.metrics.pair.majnu_meter is None
+
+
+def test_payload_requires_null_metrics_to_be_explicit() -> None:
+    doc = example("abridged_payload")
+    del doc["metrics"]["pair"]["lsm"]
+    with pytest.raises(ValidationError, match="lsm"):
+        AbridgedPayload.model_validate(doc)
+
+
 def test_payload_rejects_long_excerpt() -> None:
     doc = example("abridged_payload")
     doc["milestones"][0]["excerpts"][0]["text"] = "x" * 81

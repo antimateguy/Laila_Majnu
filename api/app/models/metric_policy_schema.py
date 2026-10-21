@@ -34,6 +34,24 @@ class MomentumValues(BaseModel):
     RISING: float = Field(..., ge=0.0, le=1.0)
 
 
+class Warmth(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    affection_cap_per_100_msgs: float = Field(..., gt=0.0)
+    we_talk_cap_per_1000_words: float = Field(..., gt=0.0)
+
+
+class Friction(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    conflict_cap_per_100_msgs: float = Field(..., gt=0.0)
+    ghosts_cap_per_10_weeks: float = Field(..., gt=0.0)
+    breadcrumbs_cap: float = Field(..., gt=0.0)
+    pd_episodes_cap_per_10_weeks: float = Field(..., gt=0.0)
+
+
 class Chemistry(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -47,6 +65,20 @@ class Chemistry(BaseModel):
     )
     momentum_values: MomentumValues
     friction_max_points: float = Field(..., ge=0.0, le=100.0)
+    warmth: Warmth = Field(
+        ...,
+        description="Warmth = mean of min(1, lower side's affection / affection_cap), min(1, lower side's we-talk / we_talk_cap) and shared laughter.",
+    )
+    friction: Friction = Field(
+        ...,
+        description="Friction = mean of the four capped terms below; the penalty is friction_max_points x friction.",
+    )
+    min_available_weight: float = Field(
+        ...,
+        description="A headline score is null when less than this share of its weight is available.",
+        ge=0.0,
+        le=1.0,
+    )
 
 
 class Confidence(BaseModel):
@@ -63,7 +95,7 @@ class Confidence(BaseModel):
     )
     high_min_n: int = Field(
         ...,
-        description="At least this many relevant events => high confidence; in between is medium.",
+        description="At least this many relevant events => high confidence; from low_below_n up to this is medium.",
         ge=1,
     )
 

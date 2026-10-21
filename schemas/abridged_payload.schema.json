@@ -186,60 +186,148 @@
       ],
       "properties": {
         "latency_p50_s": {
-          "$ref": "common.schema.json#/$defs/seconds"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
         },
         "latency_p90_s": {
-          "$ref": "common.schema.json#/$defs/seconds"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
         },
         "initiation_share": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "msg_share": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "char_share": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "double_text_rate": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "double_text_fast_share": {
           "description": "Share of SELF/OTHER double texts sent < 30 min after their own last message.",
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "double_text_slow_share": {
           "description": "Share of double texts sent > 4 h after their own last message. Added by ADR-0002.",
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "turn_toward_rate": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "followup_q_rate": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "dry_reply_rate": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "affection_rate": {
-          "$ref": "common.schema.json#/$defs/per_hundred"
+          "description": "Affection tokens per 100 messages.",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "we_talk_rate": {
-          "$ref": "common.schema.json#/$defs/per_hundred"
+          "description": "We-talk words per 1,000 words.",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "conflict_rate": {
-          "$ref": "common.schema.json#/$defs/per_hundred"
+          "description": "Apology and conflict tokens per 100 messages.",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "night_share": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "ghost_events": {
-          "$ref": "common.schema.json#/$defs/count"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         },
         "ghosts_broken": {
-          "$ref": "common.schema.json#/$defs/count"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         },
         "pd_episodes_started": {
-          "$ref": "common.schema.json#/$defs/count"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         }
       }
     },
@@ -265,40 +353,89 @@
       ],
       "properties": {
         "majnu_meter": {
-          "$ref": "common.schema.json#/$defs/score"
+          "description": "Null when under 60% of the score's weight is available (ADR-0008).",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "chemistry_score": {
-          "$ref": "common.schema.json#/$defs/score"
+          "description": "Null when under 60% of the score's weight is available (ADR-0008).",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
         },
         "lsm": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "length_mirroring": {
           "description": "Spearman correlation of consecutive turn lengths.",
-          "type": "number",
+          "type": [
+            "number",
+            "null"
+          ],
           "minimum": -1,
           "maximum": 1
         },
         "emoji_mirroring": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "rhythm_overlap": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "shared_laughter": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "reciprocity": {
-          "$ref": "common.schema.json#/$defs/unit"
+          "description": "Effort balance: 1 - |2 x SELF's character share - 1| (ADR-0008).",
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
         },
         "longest_rally": {
-          "$ref": "common.schema.json#/$defs/count"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         },
         "breadcrumb_events": {
-          "$ref": "common.schema.json#/$defs/count"
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
         },
         "first_affection": {
-          "description": "Null when neither side has used an affection token.",
+          "description": "Null when neither side has used an affection token, or when the affection metric is unavailable (LocalReport.unavailable tells the two apart).",
           "oneOf": [
             {
               "type": "null"
@@ -322,21 +459,34 @@
           ]
         },
         "momentum": {
-          "$ref": "common.schema.json#/$defs/momentum"
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/momentum"
+            }
+          ]
         },
         "fast_start_fade": {
           "description": "(affection + volume, last 4 weeks) / (same, first 4 weeks).",
-          "type": "number",
+          "type": [
+            "number",
+            "null"
+          ],
           "minimum": 0
         },
         "latency_trend_s_per_week": {
-          "type": "number"
+          "type": [
+            "number",
+            "null"
+          ]
         }
       }
     },
     "metrics_block": {
       "title": "MetricsBlock",
-      "description": "Shared by AbridgedPayload, LocalReport and DonationRecord.",
+      "description": "Shared by AbridgedPayload, LocalReport and DonationRecord. A null value means the metric could not be computed (fail-soft, ADR-0008); it never means zero.",
       "type": "object",
       "additionalProperties": false,
       "required": [
