@@ -1,0 +1,179 @@
+{
+ "seed": 20261021,
+ "canary": "lmcanaryrmsammkuuh",
+ "fixtures": [
+  {
+   "id": "android_12h_dmy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_12h_dmy/_chat.txt"
+   ],
+   "participants": [
+    "Kabir Mehta",
+    "Riya 🌸"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "android_12h_mdy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_12h_mdy/_chat.txt"
+   ],
+   "participants": [
+    "Ishaan Rao",
+    "Ananya Verma"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "android_24h_dmy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_24h_dmy/_chat.txt"
+   ],
+   "participants": [
+    "Meera Iyer",
+    "Riya 🌸"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "android_24h_mdy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_24h_mdy/_chat.txt"
+   ],
+   "participants": [
+    "Tara Joshi",
+    "Riya 🌸"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "ios_12h_dmy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/ios/ios_12h_dmy/_chat.txt",
+    "zips/whatsapp_ios_12h_dmy.zip"
+   ],
+   "participants": [
+    "Tara Joshi",
+    "Ananya Verma"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "ios_12h_mdy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/ios/ios_12h_mdy/_chat.txt"
+   ],
+   "participants": [
+    "Tara Joshi",
+    "Noor Ali"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "ios_24h_dmy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/ios/ios_24h_dmy/_chat.txt"
+   ],
+   "participants": [
+    "Meera Iyer",
+    "Riya 🌸"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "ios_24h_mdy",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/ios/ios_24h_mdy/_chat.txt"
+   ],
+   "participants": [
+    "Tara Joshi",
+    "+91 98765 01234"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "android_24h_dmy_london_dst",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_24h_dmy_london_dst/_chat.txt"
+   ],
+   "participants": [
+    "Tara Joshi",
+    "Dev Malhotra"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "android_ambiguous_date_order",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_ambiguous_date_order/_chat.txt"
+   ],
+   "participants": [
+    "Kabir Mehta",
+    "Ananya Verma"
+   ],
+   "expect_code": "AmbiguousDateOrder"
+  },
+  {
+   "id": "android_group_3p",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/android/android_group_3p/_chat.txt"
+   ],
+   "participants": [
+    "Ishaan Rao",
+    "Dev Malhotra",
+    "Kavya Das"
+   ],
+   "expect_code": "GroupChatRejected"
+  },
+  {
+   "id": "ios_trailer_small",
+   "platform": "whatsapp",
+   "files": [
+    "whatsapp/ios/ios_trailer_small/_chat.txt"
+   ],
+   "participants": [
+    "Aarav Sharma",
+    "Ananya Verma"
+   ],
+   "expect_code": "Ok"
+  },
+  {
+   "id": "instagram_split_mojibake",
+   "platform": "instagram",
+   "files": [
+    "instagram/instagram_split_mojibake/message_1.json",
+    "instagram/instagram_split_mojibake/message_2.json",
+    "zips/instagram_split_mojibake.zip"
+   ],
+   "participants": [
+    "Ishaan Rao",
+    "Dev Malhotra"
+   ],
+   "expect_code": "MojibakeRepaired"
+  },
+  {
+   "id": "instagram_single",
+   "platform": "instagram",
+   "files": [
+    "instagram/instagram_single/message_1.json",
+    "zips/instagram_single.zip"
+   ],
+   "participants": [
+    "Ishaan Rao",
+    "Dev Malhotra"
+   ],
+   "expect_code": "MojibakeRepaired"
+  }
+ ]
+}
