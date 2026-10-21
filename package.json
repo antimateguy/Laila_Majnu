@@ -1,0 +1,24 @@
+{
+  "name": "laila-majnu",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "web"
+  ],
+  "scripts": {
+    "codegen": "node tools/codegen.mjs",
+    "codegen:check": "node tools/codegen.mjs --check",
+    "archetypes:check": "node tools/check-archetypes.mjs",
+    "archetypes:check:prod": "node tools/check-archetypes.mjs --production",
+    "test:tools": "vitest run --root tools"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "json-schema-to-typescript": "16.0.0",
+    "vitest": "5.0.5"
+  }
+}
