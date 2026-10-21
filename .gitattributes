@@ -1,0 +1,8 @@
+# Normalise text to LF so generated code and drift checks match across Windows and Linux.
+* text=auto eol=lf
+# Fixtures are byte-exact test inputs (some use CRLF on purpose); never let git rewrite them.
+fixtures/synthetic/** -text
+fixtures/expected/** -text
+*.zip binary
+*.png binary
+*.woff2 binary
