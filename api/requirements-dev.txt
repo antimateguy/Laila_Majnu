@@ -2,7 +2,7 @@
 # Dev and CI only.
 datamodel-code-generator==0.86.0
 httpx==0.28.1
-mypy==2.4.0
+mypy==2.4.1
 pip-audit==2.10.1
 pytest==9.1.1
 ruff==0.17.1
